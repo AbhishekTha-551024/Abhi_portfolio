@@ -14,7 +14,7 @@ export function Resume() {
     lastUpdated: 'July 2025',
     fileSize: '0.3 MB',
     previewImageSrc: '/Resume_Yuvraj_Singh_AI.png',
-    downloadUrl: '/Resume_Yuvraj_Singh_AI.pdf',
+    downloadUrl: '/Resume_Abhishek_Singh_AI.pdf',
   };
 
   const handleDownload = () => {
