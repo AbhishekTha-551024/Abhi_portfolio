@@ -397,7 +397,7 @@ const Chat = () => {
           rel="noopener noreferrer"
           className="fixed right-3 bottom-0 z-10 mb-4 hidden cursor-pointer items-center gap-2 rounded-xl px-4 py-2 text-sm hover:underline md:block"
         >
-          @yuvraj-singh
+          @Abhishek-singh
         </a>
       </div>
     </div>
