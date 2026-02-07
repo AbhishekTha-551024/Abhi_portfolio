@@ -15,7 +15,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   // CHANGE THIS: Your Name
-  title: "Your Name | Portfolio", 
+  title: "Abhishek Singh | Portfolio", 
   description: "Interactive portfolio with an AI-powered Memoji that answers questions about me, my skills, and my experience",
   keywords: [
     "Developer", 
@@ -27,24 +27,24 @@ export const metadata: Metadata = {
   ],
   authors: [
     {
-      name: "Your Name",
+      name: "Abhishek singh",
       url: "https://your-domain.com",
     },
   ],
-  creator: "Your Name",
+  creator: "Abhishek singh",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://your-domain.com",
-    title: "Your Name Portfolio",
+    title: "Abhishek Singh Portfolio",
     description: "Interactive portfolio with an AI-powered Memoji",
-    siteName: "Your Name Portfolio",
+    siteName: "Abhishek Singh Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Your Name Portfolio",
+    title: "Abhishek Singh Portfolio",
     description: "Interactive portfolio with an AI-powered Memoji",
-    creator: "@yourhandle",
+    creator: "@AbhishekSingh",
   },
   icons: {
     icon: [
