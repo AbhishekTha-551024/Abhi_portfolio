@@ -98,7 +98,7 @@ export default function Home() {
 
         {/* Resume Download Button */}
         <a
-          href="/Abhishek_Singh_Resume.pdf"
+          href="/Resume_Abhishek_Singh_AI.pdf"
           download
           className="flex items-center gap-1 rounded-md border bg-white/30 px-3 py-1.5 text-sm font-medium text-black shadow-md backdrop-blur-lg transition hover:bg-white/60 dark:border-white dark:text-white dark:hover:bg-neutral-800"
         >
