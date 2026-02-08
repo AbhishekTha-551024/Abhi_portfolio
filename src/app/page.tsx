@@ -12,18 +12,19 @@ import {
   Layers,
   PartyPopper,
   UserRoundSearch,
+  Download,
 } from 'lucide-react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
-import { ThemeToggle } from '@/components/ui/ThemeToggle'; // Import the theme toggle
+import { ThemeToggle } from '@/components/ui/ThemeToggle';
 
 /* ---------- quick-question data ---------- */
 const questions = {
   Me: 'Who are you? I want to know more about you.',
   Projects: 'What are your projects? What are you working on right now?',
   Skills: 'What are your skills? Give me a list of your soft and hard skills.',
-  Fun: 'What’s the craziest thing you’ve ever done? What are your hobbies?',
+  Fun: 'What are your hobbies and interests?',
   Contact: 'How can I contact you?',
 } as const;
 
@@ -44,7 +45,6 @@ export default function Home() {
   const goToChat = (query: string) =>
     router.push(`/chat?query=${encodeURIComponent(query)}`);
 
-  /* hero animations (unchanged) */
   const topElementVariants = {
     hidden: { opacity: 0, y: -60 },
     visible: {
@@ -53,6 +53,7 @@ export default function Home() {
       transition: { type: 'ease', duration: 0.8 },
     },
   };
+
   const bottomElementVariants = {
     hidden: { opacity: 0, y: 80 },
     visible: {
@@ -63,13 +64,11 @@ export default function Home() {
   };
 
   useEffect(() => {
-    // Précharger les assets du chat en arrière-plan
     const img = new window.Image();
     img.src = '/landing-memojis.png';
 
-    // Précharger les vidéos aussi
     const linkWebm = document.createElement('link');
-    linkWebm.rel = 'preload'; // Note: prefetch au lieu de preload
+    linkWebm.rel = 'preload';
     linkWebm.as = 'video';
     linkWebm.href = '/final_memojis.webm';
     document.head.appendChild(linkWebm);
@@ -93,24 +92,35 @@ export default function Home() {
         </div>
       </div>
 
-      {/* GitHub button */}
+      {/* Top right buttons */}
       <div className="absolute top-6 right-8 z-20 flex items-center gap-2">
         <ThemeToggle />
+
+        {/* Resume Download Button */}
+        <a
+          href="/Abhishek_Singh_Resume.pdf"
+          download
+          className="flex items-center gap-1 rounded-md border bg-white/30 px-3 py-1.5 text-sm font-medium text-black shadow-md backdrop-blur-lg transition hover:bg-white/60 dark:border-white dark:text-white dark:hover:bg-neutral-800"
+        >
+          <Download size={16} />
+          Resume
+        </a>
+
+        {/* GitHub Star Button */}
         <GithubButton
-          //targetStars={69}
           animationDuration={1.5}
           label="Star"
-          size={'sm'}
+          size="sm"
           repoUrl="https://github.com/yuvraj0412s/ai-native_portfolio.git"
         />
       </div>
 
+      {/* Top left badge */}
       <div className="absolute top-6 left-6 z-20">
         <button
           onClick={() => goToChat('Are you looking for an internship?')}
           className="relative flex cursor-pointer items-center gap-2 rounded-full border bg-white/30 px-4 py-1.5 text-sm font-medium text-black shadow-md backdrop-blur-lg transition hover:bg-white/60 dark:border-white dark:text-white dark:hover:bg-neutral-800"
         >
-          {/* Green pulse dot */}
           <span className="relative flex h-2 w-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
             <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500"></span>
@@ -126,9 +136,7 @@ export default function Home() {
         initial="hidden"
         animate="visible"
       >
-        <div className="z-100">
-          <WelcomeModal />
-        </div>
+        <WelcomeModal />
 
         <h2 className="text-secondary-foreground mt-1 text-xl font-semibold md:text-2xl">
           Hey, I'm Abhishek Singh 👋
@@ -157,7 +165,6 @@ export default function Home() {
         animate="visible"
         className="z-10 mt-4 flex w-full flex-col items-center justify-center md:px-0"
       >
-        {/* free-form question */}
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -180,12 +187,11 @@ export default function Home() {
               aria-label="Submit question"
               className="flex items-center justify-center rounded-full bg-[#0171E3] p-2.5 text-white transition-colors hover:bg-blue-600 disabled:opacity-70 dark:bg-blue-600 dark:hover:bg-blue-700"
             >
-              <ArrowRight  className="h-5 w-5" />
+              <ArrowRight className="h-5 w-5" />
             </button>
           </div>
         </form>
 
-        {/* quick-question grid */}
         <div className="mt-4 grid w-full max-w-2xl grid-cols-1 gap-3 sm:grid-cols-3 md:grid-cols-5">
           {questionConfig.map(({ key, color, icon: Icon }) => (
             <Button
@@ -202,6 +208,7 @@ export default function Home() {
           ))}
         </div>
       </motion.div>
+
       <FluidCursor />
     </div>
   );
