@@ -36,7 +36,6 @@ const questionConfig = [
   { key: 'Contact', color: '#C19433', icon: UserRoundSearch },
 ] as const;
 
-/* ---------- component ---------- */
 export default function Home() {
   const [input, setInput] = useState('');
   const router = useRouter();
@@ -67,45 +66,26 @@ export default function Home() {
   useEffect(() => {
     const img = new window.Image();
     img.src = '/landing-memojis.png';
-
-    const linkWebm = document.createElement('link');
-    linkWebm.rel = 'preload';
-    linkWebm.as = 'video';
-    linkWebm.href = '/final_memojis.webm';
-    document.head.appendChild(linkWebm);
-
-    const linkMp4 = document.createElement('link');
-    linkMp4.rel = 'prefetch';
-    linkMp4.as = 'video';
-    linkMp4.href = '/final_memojis_ios.mp4';
-    document.head.appendChild(linkMp4);
   }, []);
 
   return (
     <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-4 pb-10 md:pb-20">
-      {/* Big blurred footer name */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 flex justify-center overflow-hidden">
-        <div
-          className="hidden bg-gradient-to-b from-neutral-500/10 to-neutral-500/0 bg-clip-text text-[10rem] font-black leading-none text-transparent select-none sm:block lg:text-[16rem]"
-          style={{ marginBottom: '-2.5rem' }}
-        >
-          Abhishek
-        </div>
-      </div>
-
-      {/* Top right controls */}
-      <div className="absolute top-6 right-8 z-20 flex items-center gap-2">
+      
+      {/* 🔒 FIXED TOP-RIGHT CONTROLS (ALWAYS VISIBLE) */}
+      <div className="fixed top-6 right-6 z-50 flex items-center gap-2">
         <ThemeToggle />
 
+        {/* Resume Button */}
         <a
           href="/Resume_Abhishek_Singh_AI.pdf"
           download
-          className="flex items-center gap-1 rounded-md border bg-white/30 px-3 py-1.5 text-sm font-medium text-black shadow-md backdrop-blur-lg transition hover:bg-white/60 dark:border-white dark:text-white dark:hover:bg-neutral-800"
+          className="flex items-center gap-1 rounded-md border bg-white/40 px-3 py-1.5 text-sm font-medium text-black shadow-lg backdrop-blur-lg transition hover:scale-105 hover:bg-white/70 dark:border-white dark:text-white dark:hover:bg-neutral-800"
         >
           <Download size={16} />
           Resume
         </a>
 
+        {/* GitHub Star Button */}
         <GithubButton
           animationDuration={1.5}
           label="Star"
@@ -114,21 +94,21 @@ export default function Home() {
         />
       </div>
 
-      {/* Top left hiring badge */}
-      <div className="absolute top-6 left-6 z-20">
+      {/* TOP LEFT BADGE */}
+      <div className="fixed top-6 left-6 z-50">
         <button
-          onClick={() => goToChat('Are you hiring interns right now?')}
-          className="relative flex items-center gap-2 rounded-full border bg-white/30 px-4 py-1.5 text-sm font-medium text-black shadow-md backdrop-blur-lg transition hover:bg-white/60 dark:border-white dark:text-white dark:hover:bg-neutral-800"
+          onClick={() => goToChat('Are you looking for an intern?')}
+          className="relative flex items-center gap-2 rounded-full border bg-white/40 px-4 py-1.5 text-sm font-medium text-black shadow-md backdrop-blur-lg transition hover:bg-white/70 dark:border-white dark:text-white dark:hover:bg-neutral-800"
         >
           <span className="relative flex h-2 w-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
           </span>
-          Hiring right now?
+          Available for work
         </button>
       </div>
 
-      {/* Header */}
+      {/* HEADER */}
       <motion.div
         className="z-10 mt-24 mb-8 flex flex-col items-center text-center md:mt-4 md:mb-12"
         variants={topElementVariants}
@@ -145,19 +125,19 @@ export default function Home() {
         </h1>
       </motion.div>
 
-      {/* Center memoji */}
+      {/* CENTER IMAGE */}
       <div className="relative z-10 h-52 w-48 overflow-hidden sm:h-72 sm:w-72">
         <Image
-          src="/landing-memojis.png"
-          alt="AI portfolio memoji"
-          width={2000}
-          height={2000}
+          src="/profile-Abhi.jpg"
+          alt="Abhishek Singh"
+          width={400}
+          height={400}
           priority
-          className="translate-y-1 scale-[1.2] object-cover"
+          className="rounded-full object-cover"
         />
       </div>
 
-      {/* Input + quick questions */}
+      {/* INPUT + QUICK QUESTIONS */}
       <motion.div
         variants={bottomElementVariants}
         initial="hidden"
@@ -171,7 +151,7 @@ export default function Home() {
           }}
           className="relative w-full max-w-lg"
         >
-          <div className="mx-auto flex items-center rounded-full border bg-white/30 py-2.5 pr-2 pl-6 backdrop-blur-lg transition hover:border-neutral-300 dark:border-neutral-700 dark:bg-neutral-800">
+          <div className="mx-auto flex items-center rounded-full border bg-white/30 py-2.5 pr-2 pl-6 backdrop-blur-lg dark:bg-neutral-800">
             <input
               ref={inputRef}
               type="text"
