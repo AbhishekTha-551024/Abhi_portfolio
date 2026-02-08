@@ -1,33 +1,51 @@
 'use client';
 
 import React from 'react';
+
 const Sports = () => {
   return (
     <div className="mx-auto w-full">
       <div className="mb-8">
         <h2 className="text-foreground text-3xl font-semibold md:text-4xl">
-          🏅 Not Just Tech - I'm Built for the Fast Lane
+          ♟️ Beyond Code – How I Sharpen My Thinking
         </h2>
         <p className="mt-2 text-muted-foreground text-lg">
-          (On Wheels, Tables, and Consoles)
+          Strategy, Curiosity, and Continuous Learning
         </p>
       </div>
 
       <div className="space-y-6 text-muted-foreground text-base">
         <p>
-          Before I dove deep into development, I was speeding through life quite literally on skates 🛼. I’ve been skating since childhood and even made it to the national level. It taught me discipline, balance, and how to keep moving forward no matter the bumps (or bruises).
+          Outside of coding, I spend a lot of time strengthening the same skills
+          that matter in software development — focus, logic, and problem-solving.
+          One of my favorite activities is playing chess ♟️, which helps me think
+          multiple steps ahead and stay calm while solving complex challenges.
         </p>
+
         <p>
-          My love for sports didn’t stop there. I’ve proudly captained my college snooker team 🎱—snooker’s actually my all-time favorite. It's a game of precision, patience, and strategy, basically debugging, but with more chalk and cooler posture.
+          I also enjoy reading books 📚, especially those related to technology,
+          self-improvement, and logical thinking. Reading helps me build deeper
+          understanding, improve clarity of thought, and stay motivated to grow
+          both personally and professionally.
         </p>
+
         <p>
-          On the virtual side of things, I was also part of a professional esports team 🎮. It’s high-speed, high-pressure, and weirdly similar to deploying a complex AI model with zero margin for error.
+          Learning new technologies 💻 is something I genuinely enjoy, not just a
+          requirement. I regularly explore modern tools, frameworks, and concepts
+          related to full-stack development, backend systems, and AI-driven
+          applications to stay up to date with the fast-moving tech ecosystem.
         </p>
+
         <p>
-          When I’m not leading code or cue sports, you’ll catch me on a bike ride 🏍️—it’s my way to chase the thrill and hit pause on the chaos. Two wheels, open roads, and some deep thinking time works every time.
+          Whether it’s solving a chess problem, understanding a new framework, or
+          reading about system design, I like activities that challenge my mind
+          and push me to think more efficiently and creatively.
         </p>
+
         <p>
-          And just for fun? I enjoy a game of badminton 🏸, a match of football ⚽, or a thoughtful round of chess ♟️. Win or lose, it’s all part of staying sharp mentally and physically.
+          These habits help me stay consistent, curious, and disciplined — the
+          same qualities I bring into my projects, internships, and collaborative
+          development work.
         </p>
       </div>
     </div>

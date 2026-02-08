@@ -79,7 +79,6 @@ const InternshipCard = () => {
             <div className="text-muted-foreground grid grid-cols-1 gap-y-1 text-sm sm:grid-cols-2">
               <ul className="decoration-none list-disc pl-4">
                 <li>JavaScript, Next.js, mongoDB</li>
-                <li>Flask, Django</li>
                 <li>OpenAI, Mistral, Claude</li>
                 <li>Prompt engineering, fine-tuning</li>
               </ul>
