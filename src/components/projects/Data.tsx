@@ -1,4 +1,4 @@
-// File: data.tsx
+=// File: data.tsx
 import Image from 'next/image';
 import { ChevronRight, Link } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
@@ -25,7 +25,7 @@ const PROJECT_CONTENT = [
   {
     title: 'QuickChat',
     description:
-      '{Quick Chat (2025):} Developed a real-time messaging application using WebSockets for instant data exchange. Implemented user authentication and secure login using JWT and bcrypt. Managed message storage and user profiles using MongoDB and Mongoose. Integrated automated email notifications and secure session handling via cookies. Node.js, Socket.io, MongoDB..',
+      '{QuickChat (2025):} Developed a real-time messaging application using WebSockets for instant data exchange. Implemented user authentication and secure login using JWT and bcrypt. Managed message storage and user profiles using MongoDB and Mongoose. Integrated automated email notifications and secure session handling via cookies. Node.js, Socket.io, MongoDB.',
     techStack: [
       'Socket.io', 'MongoDB', 'Express.js', 'React', 'Node.js', 'Tailwind CSS', 'Framer Motion', 'JWT'
     ],
@@ -40,11 +40,11 @@ const PROJECT_CONTENT = [
     ],
   },
   {
-    title: 'QuickChat',
+    title: 'CarRental',
     description:
-      '',
+      '{CarRental (2025):} Built a full-stack car rental platform where users can book cars and owners can list their vehicles. Implemented authentication, booking management, and payment integration. Designed responsive UI and managed data using MongoDB and Express.',
     techStack: [
-       'MongoDB', 'Express.js', 'React', 'Node.js', 'Tailwind CSS', 'Framer Motion', 'JWT'
+      'MongoDB', 'Express.js', 'React', 'Node.js', 'Tailwind CSS', 'Framer Motion', 'JWT'
     ],
     date: 'February 2025',
     links: [
@@ -52,8 +52,8 @@ const PROJECT_CONTENT = [
       { name: 'GitHub Repository', url: 'https://github.com/AbhishekTha-551024/CarRental' },
     ],
     images: [
-      { src: '/projects/carrental-home.png', alt: 'CarRental Messaging Interface' },
-      { src: '/projects/carrental-login.png', alt: 'Secure Authentication Screen' },
+      { src: '/projects/carrental-home.png', alt: 'CarRental Home Interface' },
+      { src: '/projects/carrental-login.png', alt: 'CarRental Login Screen' },
     ],
   }
 ];
@@ -139,7 +139,8 @@ export const data = [
     title: 'QuickChat',
     src: '/projects/quickchat-preview.png', 
     content: <ProjectContent project={{ title: 'QuickChat' }} />,
-  }, {
+  },
+  {
     category: 'Real-Time CarRental',
     title: 'CarRental',
     src: '/projects/carrental-preview.png', 
