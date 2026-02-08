@@ -2,10 +2,12 @@ import { tool } from 'ai';
 import { z } from 'zod';
 
 export const getResume = tool({
-  description:
-    'This tool show my resume.',
+  description: 'Provides access to Abhishek Singh’s resume.',
   parameters: z.object({}),
   execute: async () => {
-    return "You can download my resume by clicking on the link above.";
+    return (
+      "You can download my resume using the button above. " +
+      "It includes details about my skills, projects, and experience."
+    );
   },
 });

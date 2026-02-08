@@ -92,6 +92,7 @@ export function Contact() {
           <h3 className="font-semibold mb-2">What I'm Looking For</h3>
           <p className="text-sm text-muted-foreground">
             • AI opportunities • AI Automation projects • Full-stack development roles • 
+            
             Open source contributions • Tech community connections
           </p>
         </div>

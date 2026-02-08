@@ -2,10 +2,12 @@ import { tool } from 'ai';
 import { z } from 'zod';
 
 export const getContact = tool({
-  description:
-    'This tool shows my contact information.',
+  description: 'Shows Abhishek Singh’s contact information.',
   parameters: z.object({}),
   execute: async () => {
-    return "Here is my contact information above! Feel free to reach out - I'm always excited to connect with fellow tech enthusiasts and discuss opportunities! 😊";
+    return (
+      "You’ll find my contact details above. " +
+      "Feel free to reach out — I’m always open to discussions, learning opportunities, and collaborations in tech."
+    );
   },
 });

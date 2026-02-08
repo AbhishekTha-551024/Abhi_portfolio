@@ -3,24 +3,24 @@ import { z } from 'zod';
 
 export const getInternship = tool({
   description:
-    "Gives a summary of what kind of internship I'm looking for, plus my contact info and how to reach me. Use this tool when the user asks about my internship search or how to contact me for opportunities.",
+    "Summarizes the kind of internship Abhishek Singh is looking for and how to contact him. Use this when the user asks about internships, opportunities, or hiring.",
   parameters: z.object({}),
   execute: async () => {
-    return `Here’s what I’m looking for 👇
+    return `
+Here’s what I’m currently looking for:
 
-- 📅 **Availability**: Open to immediate opportunities
-- 🌍 **Location**: Preferably **Gurugram** or anywhere in the **India**
-- 🧑‍💻 **Focus**: Data Science, AI/ML, Full-stack development
-- 🛠️ **Stack**: Python, React, SQL, TensorFlow, Power BI, Tableau
-- ✅ **What I bring**: Experience in building data-driven dashboards, optimizing data pipelines, and developing end-to-end analytics projects. Proven ability to translate raw data into actionable business insights.
-- 🔥 I move fast, learn faster, and I’m HUNGRYYYYY for big challenges
+- 📅 **Availability**: Open to internship opportunities
+- 🌍 **Location**: India (remote or on-site)
+- 🧑‍💻 **Focus Areas**: Frontend Development, Full-Stack Development, AI-powered applications
+- 🛠️ **Tech Stack**: React, Next.js, JavaScript, Node.js, MongoDB, APIs, basic AI integrations
+- ✅ **What I bring**: Strong fundamentals, hands-on project experience, clean UI-focused development, and a mindset of continuous learning. I enjoy building real-world products and improving them iteratively.
 
-📬 **Contact me** via:
-- Email: yuvraj0412s@gmail.com
-- LinkedIn: [linkedin.com/in/yuvraj-singh-77601827a](- LinkedIn: https://linkedin.com/in/yuvraj-singh-77601827a)
-- GitHub: [github.com/yuvraj0412s](https://github.com/yuvraj0412s)
+📬 **You can reach me via**:
+- **Email**: jagatrajjagatraj55102@gmail.com  
+- **LinkedIn**: https://www.linkedin.com/in/abhishek-s-053525281/  
+- **GitHub**: https://github.com/AbhishekTha-551024  
 
-Let's build cool shit together ✌️
+I’m especially interested in learning-focused environments where I can grow fast and contribute meaningfully.
     `;
   },
 });

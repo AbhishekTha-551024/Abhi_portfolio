@@ -3,13 +3,12 @@ import { z } from 'zod';
 
 export const getPresentation = tool({
   description:
-    'This tool returns a concise personal introduction of Yuvraj Singh. It is used to answer the question "Who are you?" or "Tell me about yourself"',
+    'Returns a concise personal introduction of Abhishek Singh. Used when the user asks "Who are you?" or "Tell me about yourself".',
   parameters: z.object({}),
   execute: async () => {
     return {
       presentation:
-        "Here is a little bit about me, you can see it above!",
-        //"I'm Yuvraj Singh (you can call me Yuvi), a 22-year-old developer passionate about software development, AI, and machine learning. I love tackling new challenges, learning, and building innovative solutions. Beyond tech, I enjoy riding my bike and playing snooker.",
+        "I’m Abhishek Singh, a frontend-focused developer who enjoys building clean, modern web applications and experimenting with AI-powered features. I’m passionate about learning new technologies and turning ideas into practical projects.\n\nOutside of coding, I like playing chess, reading books, and staying curious about how technology is shaping the future. This portfolio is an experiment to combine development with AI and make learning and interaction more engaging.",
     };
   },
 });

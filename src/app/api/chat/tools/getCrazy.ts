@@ -1,13 +1,14 @@
-
-import { tool } from "ai";
-import { z } from "zod";
-
+import { tool } from 'ai';
+import { z } from 'zod';
 
 export const getCrazy = tool({
   description:
-    "This tool will tell the craziest thing I've ever done. Use it when the user asks something like: 'What's the craziest thing you've ever done?'",
+    "Tells the craziest or most interesting thing Abhishek Singh has done. Use when the user asks about fun, crazy, or unique experiences.",
   parameters: z.object({}),
   execute: async () => {
-    return "Built an AI-native portfolio that answers questions better than I do 🤖. Recruiters didn’t know whether to hire me or the bot. 😅";
+    return (
+      "Probably building an AI-powered portfolio that can talk about my work, skills, and projects on my behalf. " +
+      "It started as an experiment while learning new AI tools and turned into something people actually enjoy interacting with."
+    );
   },
 });
