@@ -31,7 +31,7 @@ const PROJECT_CONTENT = [
     ],
     date: 'February 2025',
     links: [
-      { name: 'Live Demo', url: 'https://auth-app-v1-pi.vercel.app/' },
+      { name: 'Live Demo', url: 'https://quickchat-drab.vercel.app/' },
       { name: 'GitHub Repository', url: 'https://github.com/AbhishekTha-551024/QUICKCHAT' },
     ],
     images: [
