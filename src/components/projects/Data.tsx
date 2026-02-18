@@ -14,7 +14,7 @@ const PROJECT_CONTENT = [
     ],
     date: 'January 2025',
     links: [
-      { name: 'Live Demo', url: 'https://swift-shop-ten.vercel.app/' },
+      { name: 'Live Demo', url: 'https://swift-shop-lac.vercel.app/' },
       { name: 'GitHub Repository', url: 'https://github.com/AbhishekTha-551024/SwiftShop' },
     ],
     images: [
