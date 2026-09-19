@@ -156,7 +156,7 @@ export const data = [
   {
     category: 'E-Commerce & Management',
     title: 'SwiftShop',
-    src: '/projects/swiftshop-preview.svg', 
+    src: '/projects/swiftshop-card.svg', 
     tags: ['React', 'Node.js', 'Socket.io', 'MongoDB'],
     liveUrl: 'https://swift-shop-lac.vercel.app/',
     githubUrl: 'https://github.com/AbhishekTha-551024/SwiftShop',
@@ -166,7 +166,7 @@ export const data = [
   {
     category: 'Real-Time Social Media',
     title: 'QuickChat',
-    src: '/projects/quickchat-preview.svg', 
+    src: '/projects/quickchat-card.svg', 
     tags: ['Socket.io', 'Node.js', 'React', 'MongoDB'],
     liveUrl: 'https://quickchat-drab.vercel.app/',
     githubUrl: 'https://github.com/AbhishekTha-551024/QUICKCHAT',
@@ -176,7 +176,7 @@ export const data = [
   {
     category: 'Android & Production Product',
     title: 'Magic Calculator Pro',
-    src: '/projects/magic-calc-card.png', 
+    src: '/projects/magic-calc-card.svg', 
     tags: ['Kotlin', 'Compose', 'Firebase', 'Razorpay'],
     liveUrl: 'https://magiccalcs.in/',
     githubUrl: 'https://github.com/AbhishekTha-551024',

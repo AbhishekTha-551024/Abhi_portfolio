@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 700" width="100%" height="100%">
+  <defs>
+    <linearGradient id="swBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#04130e"/>
+      <stop offset="50%" stop-color="#082319"/>
+      <stop offset="100%" stop-color="#020a07"/>
+    </linearGradient>
+    <linearGradient id="swCardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d3023"/>
+      <stop offset="100%" stop-color="#081e16"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <filter id="swGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="35" result="blur"/>
+    </filter>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="480" height="700" fill="url(#swBg)"/>
+
+  <!-- Ambient Glowing Orbs -->
+  <circle cx="240" cy="340" r="160" fill="#10b981" opacity="0.18" filter="url(#swGlow)"/>
+  <circle cx="380" cy="500" r="120" fill="#047857" opacity="0.14" filter="url(#swGlow)"/>
+
+  <!-- Centered Interactive Product Mockup (Starts below card header ~y:150) -->
+  <g transform="translate(35, 145)">
+    <!-- Container Frame -->
+    <rect x="0" y="0" width="410" height="380" rx="24" fill="#071a13" stroke="#164332" stroke-width="2" opacity="0.95"/>
+
+    <!-- Mini Top Status Header -->
+    <rect x="20" y="20" width="10" height="10" rx="5" fill="#10b981"/>
+    <text x="38" y="29" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#6ee7b7" letter-spacing="0.5">LIVE Q-COMMERCE PIPELINE</text>
+    <rect x="300" y="16" width="90" height="22" rx="11" fill="#10b981" opacity="0.15"/>
+    <text x="314" y="31" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#34d399">SOCKET.IO</text>
+
+    <!-- Real-Time Incoming Order Card -->
+    <g transform="translate(20, 52)">
+      <rect x="0" y="0" width="370" height="100" rx="18" fill="url(#swCardGrad)" stroke="#1f5842" stroke-width="1.5"/>
+      <circle cx="36" cy="36" r="18" fill="#10b981" opacity="0.2"/>
+      <text x="27" y="43" font-size="18">🔔</text>
+      
+      <text x="68" y="34" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#ffffff">Instant Order Dispatched</text>
+      <text x="68" y="54" font-family="system-ui, sans-serif" font-size="12" fill="#a7f3d0">Store #402 • Customer Route Confirmed</text>
+      
+      <!-- Progress Bar -->
+      <rect x="68" y="72" width="220" height="6" rx="3" fill="#103627"/>
+      <rect x="68" y="72" width="170" height="6" rx="3" fill="url(#accentGrad)"/>
+      <text x="298" y="78" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#34d399">8 mins</text>
+    </g>
+
+    <!-- Product Inventory Items -->
+    <g transform="translate(20, 168)">
+      <!-- Item 1 -->
+      <rect x="0" y="0" width="178" height="96" rx="14" fill="#0b241b" stroke="#164332"/>
+      <text x="16" y="32" font-size="22">🍎</text>
+      <text x="16" y="58" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#ffffff">Fresh Groceries</text>
+      <text x="16" y="76" font-family="system-ui, sans-serif" font-size="11" fill="#6ee7b7">48 items in stock</text>
+
+      <!-- Item 2 -->
+      <rect x="192" y="0" width="178" height="96" rx="14" fill="#0b241b" stroke="#164332"/>
+      <text x="208" y="32" font-size="22">⚡</text>
+      <text x="208" y="58" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#ffffff">Fast Essentials</text>
+      <text x="208" y="76" font-family="system-ui, sans-serif" font-size="11" fill="#6ee7b7">Direct routing</text>
+    </g>
+
+    <!-- Vendor Live Counter Banner -->
+    <g transform="translate(20, 280)">
+      <rect x="0" y="0" width="370" height="78" rx="16" fill="#0a2118" stroke="#194c39"/>
+      <text x="20" y="30" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#6ee7b7">REAL-TIME INVENTORY STREAM</text>
+      <text x="20" y="60" font-family="system-ui, sans-serif" font-size="24" font-weight="800" fill="#34d399">1,248+ Orders</text>
+      <text x="240" y="56" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#a7f3d0">MongoDB &amp; Redis</text>
+    </g>
+  </g>
+</svg>

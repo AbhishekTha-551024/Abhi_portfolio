@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 700" width="100%" height="100%">
+  <defs>
+    <linearGradient id="qcBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070e24"/>
+      <stop offset="50%" stop-color="#0f1f4a"/>
+      <stop offset="100%" stop-color="#040816"/>
+    </linearGradient>
+    <linearGradient id="qcBubbleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="qcCardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#162552"/>
+      <stop offset="100%" stop-color="#0d1836"/>
+    </linearGradient>
+    <filter id="qcGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="35" result="blur"/>
+    </filter>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="480" height="700" fill="url(#qcBg)"/>
+
+  <!-- Ambient Glowing Orbs -->
+  <circle cx="240" cy="340" r="160" fill="#3b82f6" opacity="0.2" filter="url(#qcGlow)"/>
+  <circle cx="390" cy="480" r="130" fill="#6366f1" opacity="0.16" filter="url(#qcGlow)"/>
+
+  <!-- Centered Interactive Chat Interface Mockup (Starts below card header ~y:145) -->
+  <g transform="translate(35, 145)">
+    <!-- Container Frame -->
+    <rect x="0" y="0" width="410" height="380" rx="24" fill="#0b152e" stroke="#1e356d" stroke-width="2" opacity="0.95"/>
+
+    <!-- Mini Top Status Header -->
+    <rect x="20" y="20" width="10" height="10" rx="5" fill="#22c55e"/>
+    <text x="38" y="29" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#93c5fd" letter-spacing="0.5">ACTIVE WEBSOCKET STREAM</text>
+    <rect x="300" y="16" width="90" height="22" rx="11" fill="#3b82f6" opacity="0.18"/>
+    <text x="316" y="31" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#60a5fa">0ms PING</text>
+
+    <!-- Chat Messages Stream -->
+    <g transform="translate(20, 52)">
+      <!-- Message 1: Incoming -->
+      <rect x="0" y="0" width="280" height="54" rx="16" fill="#14244f" stroke="#1f3775"/>
+      <text x="16" y="25" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="500" fill="#e2e8f0">Hey Abhishek! How fast is the socket?</text>
+      <text x="16" y="42" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">10:42 AM • Delivered</text>
+
+      <!-- Message 2: Outgoing (Blue Bubble) -->
+      <rect x="80" y="66" width="290" height="66" rx="18" fill="url(#qcBubbleGrad)"/>
+      <text x="96" y="91" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#ffffff">Sub-second real-time sync with</text>
+      <text x="96" y="109" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#ffffff">Socket.io, JWT auth &amp; MongoDB ⚡</text>
+      <text x="320" y="123" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#bfdbfe">10:43 AM ✓✓</text>
+
+      <!-- Message 3: Incoming -->
+      <rect x="0" y="144" width="295" height="52" rx="16" fill="#14244f" stroke="#1f3775"/>
+      <text x="16" y="168" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="500" fill="#e2e8f0">Typing indicators &amp; UI feel super slick! 🔥</text>
+      <text x="16" y="185" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">10:43 AM • Delivered</text>
+    </g>
+
+    <!-- Interactive Chat Input Bar -->
+    <g transform="translate(20, 275)">
+      <rect x="0" y="0" width="370" height="75" rx="18" fill="#0e1b3b" stroke="#1c336b"/>
+      
+      <!-- Input Mockup Field -->
+      <rect x="15" y="16" width="290" height="42" rx="21" fill="#162958" stroke="#254388"/>
+      <circle cx="34" cy="37" r="5" fill="#3b82f6"/>
+      <text x="48" y="42" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Write a real-time message...</text>
+      
+      <!-- Send Button -->
+      <circle cx="335" cy="37" r="20" fill="url(#qcBubbleGrad)"/>
+      <text x="328" y="43" font-size="16" fill="#ffffff">➤</text>
+    </g>
+  </g>
+</svg>

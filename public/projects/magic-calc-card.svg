@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 700" width="100%" height="100%">
+  <defs>
+    <linearGradient id="mcBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0518"/>
+      <stop offset="50%" stop-color="#190b36"/>
+      <stop offset="100%" stop-color="#060210"/>
+    </linearGradient>
+    <linearGradient id="opGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+    <linearGradient id="eqGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <filter id="mcGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="35" result="blur"/>
+    </filter>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="480" height="700" fill="url(#mcBg)"/>
+
+  <!-- Ambient Glowing Orbs -->
+  <circle cx="240" cy="350" r="170" fill="#a855f7" opacity="0.22" filter="url(#mcGlow)"/>
+  <circle cx="380" cy="480" r="130" fill="#06b6d4" opacity="0.16" filter="url(#mcGlow)"/>
+
+  <!-- Centered Interactive Android App Phone Mockup (Starts below card header ~y:140) -->
+  <g transform="translate(65, 140)">
+    <!-- Phone Outer Body -->
+    <rect x="0" y="0" width="350" height="385" rx="30" fill="#0e081f" stroke="#2c164f" stroke-width="2.5" opacity="0.95"/>
+
+    <!-- Screen Area -->
+    <g transform="translate(18, 16)">
+      <!-- Top App Bar -->
+      <rect x="0" y="0" width="314" height="26" rx="6" fill="#150d2e"/>
+      <circle cx="12" cy="13" r="4" fill="#a855f7"/>
+      <text x="24" y="17" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="700" fill="#c084fc">ANDROID NATIVE ENGINE</text>
+      <rect x="238" y="4" width="70" height="18" rx="9" fill="#a855f7" opacity="0.25"/>
+      <text x="248" y="16" font-family="system-ui, sans-serif" font-size="9" font-weight="800" fill="#e9d5ff">KOTLIN</text>
+
+      <!-- Calculator Display Screen -->
+      <g transform="translate(0, 36)">
+        <rect x="0" y="0" width="314" height="74" rx="14" fill="#130b29" stroke="#251347"/>
+        <text x="14" y="24" font-family="monospace" font-size="11" fill="#a855f7">✨ Date Force Trick Mode</text>
+        <text x="300" y="58" text-anchor="end" font-family="system-ui, sans-serif" font-size="34" font-weight="800" fill="#ffffff">20,260,919</text>
+      </g>
+
+      <!-- Native Android Keypad Grid -->
+      <g transform="translate(0, 122)">
+        <!-- Row 1 -->
+        <rect x="0" y="0" width="72" height="42" rx="10" fill="#1b0f38"/>
+        <text x="36" y="26" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#38bdf8">C</text>
+
+        <rect x="80" y="0" width="72" height="42" rx="10" fill="#1b0f38"/>
+        <text x="116" y="26" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#38bdf8">±</text>
+
+        <rect x="160" y="0" width="72" height="42" rx="10" fill="#1b0f38"/>
+        <text x="196" y="26" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#38bdf8">%</text>
+
+        <rect x="240" y="0" width="74" height="42" rx="10" fill="url(#opGrad)"/>
+        <text x="277" y="26" text-anchor="middle" font-family="system-ui, sans-serif" font-size="17" font-weight="700" fill="#ffffff">÷</text>
+
+        <!-- Row 2 -->
+        <rect x="0" y="48" width="72" height="42" rx="10" fill="#180e33"/>
+        <text x="36" y="74" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#e2e8f0">7</text>
+
+        <rect x="80" y="48" width="72" height="42" rx="10" fill="#180e33"/>
+        <text x="116" y="74" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#e2e8f0">8</text>
+
+        <rect x="160" y="48" width="72" height="42" rx="10" fill="#180e33"/>
+        <text x="196" y="74" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#e2e8f0">9</text>
+
+        <rect x="240" y="48" width="74" height="42" rx="10" fill="url(#opGrad)"/>
+        <text x="277" y="74" text-anchor="middle" font-family="system-ui, sans-serif" font-size="17" font-weight="700" fill="#ffffff">×</text>
+
+        <!-- Row 3 -->
+        <rect x="0" y="96" width="72" height="42" rx="10" fill="#180e33"/>
+        <text x="36" y="122" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#e2e8f0">4</text>
+
+        <rect x="80" y="96" width="72" height="42" rx="10" fill="#180e33"/>
+        <text x="116" y="122" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#e2e8f0">5</text>
+
+        <rect x="160" y="96" width="72" height="42" rx="10" fill="#180e33"/>
+        <text x="196" y="122" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#e2e8f0">6</text>
+
+        <rect x="240" y="96" width="74" height="42" rx="10" fill="url(#opGrad)"/>
+        <text x="277" y="122" text-anchor="middle" font-family="system-ui, sans-serif" font-size="17" font-weight="700" fill="#ffffff">−</text>
+
+        <!-- Row 4 (Bottom) -->
+        <rect x="0" y="144" width="152" height="42" rx="10" fill="#180e33"/>
+        <text x="76" y="170" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#e2e8f0">0</text>
+
+        <rect x="160" y="144" width="72" height="42" rx="10" fill="#180e33"/>
+        <text x="196" y="170" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#e2e8f0">.</text>
+
+        <rect x="240" y="144" width="74" height="42" rx="10" fill="url(#eqGrad)"/>
+        <text x="277" y="170" text-anchor="middle" font-family="system-ui, sans-serif" font-size="17" font-weight="700" fill="#ffffff">=</text>
+      </g>
+    </g>
+  </g>
+</svg>
