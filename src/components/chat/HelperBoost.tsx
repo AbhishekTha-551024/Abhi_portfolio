@@ -24,6 +24,7 @@ import {
   Sparkles,
   UserRoundSearch,
   UserSearch,
+  FileText,
 } from 'lucide-react';
 import { useState } from 'react';
 import { Drawer } from 'vaul';
@@ -37,17 +38,19 @@ const questions = {
   Me: 'Who are you? I want to know more about you.',
   Projects: 'What are your projects? What are you working on right now?',
   Skills: 'What are your skills? Give me a list of your soft and hard skills.',
-  Fun: "What the craziest thing you've ever done? (mb?) What are your hobbies? ",
+  Resume: 'Can you show me your official resume and verified CV?',
   Contact:
     'How can I reach you? What kind of project would make you say "yes" immediately?',
+  Fun: "What the craziest thing you've ever done? (mb?) What are your hobbies? ",
 };
 
 const questionConfig = [
   { key: 'Me', color: '#329696', icon: Laugh },
   { key: 'Projects', color: '#3E9858', icon: BriefcaseBusiness },
   { key: 'Skills', color: '#856ED9', icon: Layers },
-  { key: 'Fun', color: '#B95F9D', icon: PartyPopper },
+  { key: 'Resume', color: '#0284c7', icon: FileText },
   { key: 'Contact', color: '#C19433', icon: UserRoundSearch },
+  { key: 'Fun', color: '#B95F9D', icon: PartyPopper },
 ];
 
 // Helper drawer data

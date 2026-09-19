@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, type Variants } from 'framer-motion';
-import { Award, Code, GraduationCap, Mail, MessageSquare } from 'lucide-react';
+import { Award, Code, GraduationCap, Mail, MessageSquare, FileText } from 'lucide-react';
 import React from 'react';
 
 interface ChatLandingProps {
@@ -18,6 +18,10 @@ const ChatLanding: React.FC<ChatLandingProps> = ({ submitQuery }) => {
     {
       icon: <Code className="h-4 w-4" />,
       text: 'What projects have you worked on?',
+    },
+    {
+      icon: <FileText className="h-4 w-4" />,
+      text: 'Can I see your resume?',
     },
     {
       icon: <Award className="h-4 w-4" />,

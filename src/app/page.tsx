@@ -13,6 +13,7 @@ import {
   PartyPopper,
   UserRoundSearch,
   Download,
+  FileText,
 } from 'lucide-react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -25,16 +26,18 @@ const questions = {
   Me: 'Who are you? I want to know more about you.',
   Projects: 'What projects have you worked on recently?',
   Skills: 'What are your skills? List your technical and soft skills.',
-  Fun: 'What are your hobbies and interests?',
+  Resume: 'Can you show me your official resume and verified CV?',
   Contact: 'How can I contact you?',
+  Fun: 'What are your hobbies and interests?',
 } as const;
 
 const questionConfig = [
   { key: 'Me', color: '#329696', icon: Laugh },
   { key: 'Projects', color: '#3E9858', icon: BriefcaseBusiness },
   { key: 'Skills', color: '#856ED9', icon: Layers },
-  { key: 'Fun', color: '#B95F9D', icon: PartyPopper },
+  { key: 'Resume', color: '#0284c7', icon: FileText },
   { key: 'Contact', color: '#C19433', icon: UserRoundSearch },
+  { key: 'Fun', color: '#B95F9D', icon: PartyPopper },
 ] as const;
 
 /* ---------- component ---------- */
@@ -224,7 +227,7 @@ export default function Home() {
           </div>
         </form>
 
-        <div className="mt-8 grid w-full grid-cols-2 gap-3 px-4 sm:grid-cols-3 md:grid-cols-5">
+        <div className="mt-8 grid w-full grid-cols-2 gap-3 px-4 sm:grid-cols-3 md:grid-cols-6">
           {questionConfig.map(({ key, color, icon: Icon }) => (
             <Button
               key={key}
