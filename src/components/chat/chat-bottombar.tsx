@@ -33,7 +33,6 @@ export default function ChatBottombar({
     if (
       e.key === 'Enter' &&
       !e.nativeEvent.isComposing &&
-      !isToolInProgress &&
       input.trim()
     ) {
       e.preventDefault();
@@ -61,17 +60,14 @@ export default function ChatBottombar({
             value={input}
             onChange={handleInputChange}
             onKeyDown={handleKeyPress}
-            placeholder={
-              isToolInProgress ? 'Tool is in progress...' : 'Ask me anything'
-            }
-            className="text-md w-full border-none bg-transparent text-black placeholder:text-gray-500 focus:outline-none"
-            disabled={isToolInProgress || isLoading}
+            placeholder="Ask me anything..."
+            className="text-md w-full border-none bg-transparent text-black dark:text-white placeholder:text-gray-500 focus:outline-none"
           />
 
           <button
             type="submit"
-            disabled={isLoading || !input.trim() || isToolInProgress}
-            className="flex items-center justify-center rounded-full bg-[#0171E3] p-2 text-white disabled:opacity-50"
+            disabled={!isLoading && !input.trim()}
+            className="flex items-center justify-center rounded-full bg-[#0171E3] p-2 text-white disabled:opacity-50 transition-all hover:scale-105 active:scale-95"
             onClick={(e) => {
               if (isLoading) {
                 e.preventDefault();
@@ -79,7 +75,11 @@ export default function ChatBottombar({
               }
             }}
           >
-            <ArrowUp className="h-6 w-6" />
+            {isLoading ? (
+              <span className="h-3.5 w-3.5 rounded-sm bg-white" />
+            ) : (
+              <ArrowUp className="h-6 w-6" />
+            )}
           </button>
         </div>
       </form>

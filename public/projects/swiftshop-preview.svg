@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#051410"/>
+      <stop offset="50%" stop-color="#0a231c"/>
+      <stop offset="100%" stop-color="#020d09"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#12382c"/>
+      <stop offset="100%" stop-color="#0b221a"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bgGrad)"/>
+  <circle cx="300" cy="250" r="200" fill="#10b981" opacity="0.1" filter="url(#glow)"/>
+  <circle cx="900" cy="400" r="220" fill="#059669" opacity="0.12" filter="url(#glow)"/>
+
+  <!-- Left: Storefront & Orders Mockup -->
+  <g transform="translate(100, 80)">
+    <rect x="0" y="0" width="360" height="510" rx="28" fill="#0c1d17" stroke="#1b4335" stroke-width="2.5"/>
+    <!-- Top Header -->
+    <rect x="20" y="24" width="40" height="40" rx="12" fill="#10b981"/>
+    <text x="32" y="50" font-family="system-ui, sans-serif" font-size="20" font-weight="800" fill="#ffffff">🛍️</text>
+    <text x="72" y="44" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#ffffff">SwiftShop</text>
+    <text x="72" y="60" font-family="system-ui, sans-serif" font-size="11" fill="#6ee7b7">Hyper-Local Q-Commerce</text>
+
+    <!-- Live Order Notification Card -->
+    <rect x="20" y="85" width="320" height="90" rx="16" fill="url(#cardGrad)" stroke="#2d6a4f" stroke-width="1.5"/>
+    <circle cx="45" cy="115" r="14" fill="#10b981" opacity="0.2"/>
+    <text x="39" y="121" font-size="14" fill="#34d399">🔔</text>
+    <text x="70" y="112" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#ffffff">New Order Incoming!</text>
+    <text x="70" y="130" font-family="system-ui, sans-serif" font-size="12" fill="#a7f3d0">Store #402 • Socket.io Real-time Event</text>
+    <text x="70" y="152" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#34d399">⚡ Delivery dispatched in 8 mins</text>
+
+    <!-- Product Grid Mockup -->
+    <g transform="translate(20, 195)">
+      <rect x="0" y="0" width="152" height="135" rx="14" fill="#0f261e" stroke="#1f4b3c"/>
+      <text x="16" y="32" font-size="24">🍎</text>
+      <text x="16" y="65" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#ffffff">Fresh Groceries</text>
+      <text x="16" y="85" font-family="system-ui, sans-serif" font-size="11" fill="#6ee7b7">In Stock: 48 items</text>
+      <rect x="16" y="98" width="70" height="22" rx="6" fill="#10b981"/>
+      <text x="32" y="113" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#ffffff">Order</text>
+
+      <rect x="168" y="0" width="152" height="135" rx="14" fill="#0f261e" stroke="#1f4b3c"/>
+      <text x="184" y="32" font-size="24">⚡</text>
+      <text x="184" y="65" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#ffffff">Fast Essentials</text>
+      <text x="184" y="85" font-family="system-ui, sans-serif" font-size="11" fill="#6ee7b7">Ready for dispatch</text>
+      <rect x="184" y="98" width="70" height="22" rx="6" fill="#10b981"/>
+      <text x="200" y="113" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#ffffff">Order</text>
+    </g>
+
+    <!-- Vendor Dashboard Stat -->
+    <rect x="20" y="350" width="320" height="120" rx="16" fill="#0f261e" stroke="#1f4b3c"/>
+    <text x="36" y="380" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#ffffff">Vendor Live Dashboard</text>
+    <text x="36" y="415" font-family="system-ui, sans-serif" font-size="28" font-weight="800" fill="#34d399">1,248 Orders</text>
+    <text x="36" y="445" font-family="system-ui, sans-serif" font-size="11" fill="#6ee7b7">Low-latency cataloging with MongoDB &amp; Node.js</text>
+  </g>
+
+  <!-- Right: Project Overview -->
+  <g transform="translate(540, 140)">
+    <rect x="0" y="0" width="120" height="28" rx="14" fill="#10b981" opacity="0.15"/>
+    <text x="14" y="19" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#34d399" letter-spacing="1">Q-COMMERCE</text>
+
+    <text x="0" y="75" font-family="system-ui, -apple-system, sans-serif" font-size="44" font-weight="800" fill="#ffffff">SwiftShop</text>
+    <text x="0" y="110" font-family="system-ui, sans-serif" font-size="18" fill="#9ca3af">Local Q-Commerce Marketplace with Real-time Order Routing</text>
+
+    <!-- Feature Badges -->
+    <g transform="translate(0, 150)">
+      <rect x="0" y="0" width="280" height="85" rx="14" fill="#0e231b" stroke="#1b4335"/>
+      <text x="20" y="34" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#ffffff">Socket.io Notifications</text>
+      <text x="20" y="62" font-family="system-ui, sans-serif" font-size="12" fill="#6ee7b7">Instant vendor-to-user order updates</text>
+
+      <rect x="300" y="0" width="280" height="85" rx="14" fill="#0e231b" stroke="#1b4335"/>
+      <text x="320" y="34" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#ffffff">Vendor Dashboard</text>
+      <text x="320" y="62" font-family="system-ui, sans-serif" font-size="12" fill="#6ee7b7">Inventory &amp; sales catalog management</text>
+    </g>
+
+    <!-- Tech Stack -->
+    <g transform="translate(0, 275)">
+      <text x="0" y="0" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#6ee7b7" letter-spacing="1">STACK</text>
+      <g transform="translate(0, 15)">
+        <rect x="0" y="0" width="80" height="30" rx="8" fill="#14362b"/>
+        <text x="14" y="20" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#a7f3d0">React</text>
+        <rect x="90" y="0" width="85" height="30" rx="8" fill="#14362b"/>
+        <text x="104" y="20" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#a7f3d0">Node.js</text>
+        <rect x="185" y="0" width="95" height="30" rx="8" fill="#14362b"/>
+        <text x="199" y="20" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#a7f3d0">Socket.io</text>
+        <rect x="290" y="0" width="95" height="30" rx="8" fill="#14362b"/>
+        <text x="304" y="20" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#a7f3d0">MongoDB</text>
+        <rect x="395" y="0" width="85" height="30" rx="8" fill="#14362b"/>
+        <text x="409" y="20" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#a7f3d0">Redux</text>
+      </g>
+    </g>
+  </g>
+</svg>

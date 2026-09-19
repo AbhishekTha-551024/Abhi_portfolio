@@ -1,67 +1,54 @@
-# 🚀 Portfolio Setup Instructions for Yuvraj
+# 🚀 Portfolio Setup Instructions for Abhishek Singh
 
 ## 📋 **Step 1: Install Dependencies**
 
 Run this command in your terminal:
 
 ```bash
-pnpm install
+npm install
 ```
+*(or `pnpm install` if you use pnpm)*
 
-This will install the Mistral AI SDK and other dependencies.
+This will install the Groq AI SDK (`@ai-sdk/groq`), Vercel AI SDK, Next.js, and other dependencies.
 
 ## 🔐 **Step 2: Set Up Environment Variables**
 
-Create a file called `.env.local` in your project root with this content:
+Create a file named `.env.local` in your project root with this content:
 
 ```env
-# Mistral AI API Configuration
-MISTRAL_API_KEY=your_actual_mistral_api_key_here
+# Groq AI API Configuration (Llama 3.3 70B)
+# Get your free key at: https://console.groq.com/keys
+GROQ_API_KEY=your_actual_groq_api_key_here
 
 # Environment
 NODE_ENV=development
 ```
 
-**Replace `your_actual_mistral_api_key_here` with your real Mistral API key.**
+**Replace `your_actual_groq_api_key_here` with your real Groq API key (starts with `gsk_`).**
 
 ## 🎯 **Step 3: Test Locally**
 
 Run the development server:
 
 ```bash
-pnpm dev
+npm run dev
 ```
 
-Visit `http://localhost:3000` to test your portfolio.
+Visit `http://localhost:3000` to test your portfolio and interact with the AI chat!
 
 ## 🚀 **Step 4: Deploy to Vercel**
 
-1. **Push to GitHub** (if not already done)
+1. **Push to GitHub**
 2. **Connect to Vercel**:
    - Go to [vercel.com](https://vercel.com)
-   - Import your GitHub repository
-   - Add environment variable: `MISTRAL_API_KEY` with your API key
+   - Import your GitHub repository (`Abhi_portfolio`)
+   - Add Environment Variable:
+     - Key: `GROQ_API_KEY`
+     - Value: your Groq API key
 3. **Deploy!**
 
-## ✅ **What's Been Updated:**
+## ✅ **AI Model & Features:**
 
-- ✅ **Personal Information**: Yuvraj Singh, 22, Gurugram
-- ✅ **Contact Details**: Email, phone, LinkedIn, GitHub, Instagram
-- ✅ **AI Personality**: Customized with your background and experience
-- ✅ **API Integration**: Switched from OpenAI to Mistral AI
-- ✅ **Professional Experience**: All your internships and projects
-- ✅ **Skills**: Data science, AI, machine learning focus
-
-## 🎨 **Next Steps:**
-
-1. **Add your projects** (I'll help you with this)
-2. **Customize colors** (if desired)
-3. **Add your own logo** (when ready)
-4. **Test the AI chat** functionality
-
-## 🔧 **Troubleshooting:**
-
-If you see linter errors about missing modules:
-1. Make sure you ran `pnpm install`
-2. Restart your development server
-3. The errors should disappear after installation
+- ⚡ **Model**: `llama-3.3-70b-versatile` running via **Groq LPU** (lightning-fast responses)
+- 🛠️ **Function Calling / Tools**: Automatically renders projects, resume, skills, and contact info
+- 🗣️ **Animated Memoji**: Video avatar talks in real time as the AI streams responses

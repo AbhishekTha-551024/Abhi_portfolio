@@ -8,6 +8,7 @@ import {
 } from '@tabler/icons-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Image, { ImageProps } from 'next/image';
+import { ExternalLink, Github } from 'lucide-react';
 import React, {
   createContext,
   useContext,
@@ -21,6 +22,10 @@ type Card = {
   title: string;
   category: string;
   content: React.ReactNode;
+  tags?: string[];
+  liveUrl?: string;
+  githubUrl?: string;
+  accentColor?: string;
 };
 
 export const CarouselContext = createContext<{
@@ -60,12 +65,12 @@ export const Carousel = ({
 
   // Get the card width and gap based on viewport size
   const getScrollDistance = () => {
-    // Card width (w-56 = 224px) + gap-4 (16px)
-    const cardWidth = 224;
+    // Card width (w-60 = 240px) + gap-4 (16px)
+    const cardWidth = 240;
     const gap = 16;
     const totalWidth = cardWidth + gap;
 
-    // Scroll by 2 cards on desktop, 1 on mobile
+    // Scroll by 1 card
     const cardsToScroll = 1;
     return totalWidth * cardsToScroll;
   };
@@ -90,7 +95,7 @@ export const Carousel = ({
 
   const handleCardClose = (index: number) => {
     if (carouselRef.current) {
-      const cardWidth = 224; // w-56 (224px)
+      const cardWidth = 240; // w-60 (240px)
       const gap = isMobile() ? 16 : 16; // gap-4 (16px)
       const scrollPosition = (cardWidth + gap) * index;
       carouselRef.current.scrollTo({
@@ -140,7 +145,6 @@ export const Carousel = ({
                     duration: 0.5,
                     delay: 0.2 * index,
                     ease: 'easeOut',
-                    once: true,
                   },
                 }}
                 key={'card' + index}
@@ -267,34 +271,93 @@ export const Card = ({
           </div>
         )}
       </AnimatePresence>
-      <motion.button
+      <motion.div
         layoutId={layout ? `card-${card.title}` : undefined}
         onClick={handleOpen}
-        className="relative z-10 flex h-80 w-56 flex-col items-start justify-start overflow-hidden rounded-3xl bg-gray-100 dark:bg-neutral-900"
+        className="group relative z-10 flex h-88 w-60 cursor-pointer flex-col justify-between overflow-hidden rounded-3xl bg-neutral-950 text-left transition-all duration-300 border border-white/10"
+        style={{
+          boxShadow: `0 0 25px -5px ${card.accentColor || '#3b82f6'}30`,
+        }}
+        whileHover={{
+          scale: 1.025,
+          boxShadow: `0 0 35px 2px ${card.accentColor || '#3b82f6'}55`,
+          borderColor: `${card.accentColor || '#3b82f6'}80`,
+        }}
       >
-        <div className="absolute inset-x-0 top-0 z-30 h-full cursor-pointer bg-gradient-to-b from-black hover:scale-110 via-transparent to-transparent" />
-        {/*<div className="absolute inset-0 z-20 cursor-pointer bg-black/20 hover:bg-black/2" />*/}
-        <div className="relative z-40 p-8">
+        {/* Top & Bottom Dark Gradients for legibility */}
+        <div className="absolute inset-x-0 top-0 z-30 h-36 bg-gradient-to-b from-black/90 via-black/40 to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 z-30 h-36 bg-gradient-to-t from-black/95 via-black/60 to-transparent pointer-events-none" />
+
+        {/* Top Header */}
+        <div className="relative z-40 p-5">
           <motion.p
             layoutId={layout ? `category-${card.category}` : undefined}
-            className="text-left font-sans text-sm font-medium text-white md:text-base"
+            className="text-left font-sans text-[11px] font-bold tracking-wider uppercase"
+            style={{ color: card.accentColor || '#93c5fd' }}
           >
             {card.category}
           </motion.p>
           <motion.p
             layoutId={layout ? `title-${card.title}` : undefined}
-            className="max-w-xs text-left font-sans text-xl font-semibold [text-wrap:balance] text-white md:text-3xl"
+            className="mt-1 text-left font-sans text-xl font-extrabold text-white [text-wrap:balance]"
           >
             {card.title}
           </motion.p>
         </div>
+
+        {/* Background Image */}
         <BlurImage
           src={card.src}
           alt={card.title}
           fill
-          className="absolute inset-0 z-10 object-cover"
+          className="absolute inset-0 z-10 object-cover transition-transform duration-500 group-hover:scale-105"
         />
-      </motion.button>
+
+        {/* Bottom Footer with Tags and Direct Action Buttons */}
+        <div className="relative z-40 p-4 space-y-3 w-full">
+          {/* Tech Badges */}
+          {card.tags && card.tags.length > 0 && (
+            <div className="flex flex-wrap gap-1.5">
+              {card.tags.slice(0, 3).map((tag, i) => (
+                <span
+                  key={i}
+                  className="rounded-full bg-black/70 px-2 py-0.5 text-[10px] font-semibold text-neutral-300 backdrop-blur-md border border-white/10"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+
+          {/* Action Buttons: Live Demo & GitHub */}
+          <div className="flex items-center gap-2 pt-0.5">
+            {card.liveUrl && (
+              <a
+                href={card.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="flex flex-1 items-center justify-center gap-1.5 rounded-xl bg-white/15 px-3 py-2 text-xs font-bold text-white backdrop-blur-md border border-white/20 transition hover:bg-white hover:text-black active:scale-95 shadow-md"
+              >
+                <ExternalLink size={13} />
+                Live Demo
+              </a>
+            )}
+            {card.githubUrl && (
+              <a
+                href={card.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="flex items-center justify-center rounded-xl bg-black/60 p-2 text-white/80 backdrop-blur-md border border-white/15 transition hover:bg-white/20 hover:text-white active:scale-95"
+                title="View Code on GitHub"
+              >
+                <Github size={14} />
+              </a>
+            )}
+          </div>
+        </div>
+      </motion.div>
     </>
   );
 };
@@ -311,18 +374,19 @@ export const BlurImage = ({
   return (
     <Image
       className={cn(
-        'transition duration-300',
-        isLoading ? 'blur-sm' : 'blur-0',
+        'transition-all duration-300',
+        isLoading ? 'opacity-60 blur-sm' : 'opacity-100 blur-0',
         className
       )}
       onLoad={() => setLoading(false)}
+      onError={() => setLoading(false)}
       src={src}
       width={width}
       height={height}
-      loading="lazy"
-      decoding="async"
-      blurDataURL={typeof src === 'string' ? src : undefined}
-      alt={alt ? alt : 'Background of a beautiful view'}
+      loading="eager"
+      priority
+      unoptimized
+      alt={alt ? alt : 'Project preview'}
       {...rest}
     />
   );

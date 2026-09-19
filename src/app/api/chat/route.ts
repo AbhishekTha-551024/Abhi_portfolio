@@ -1,4 +1,4 @@
-import { mistral } from '@ai-sdk/mistral';
+import { groq } from '@ai-sdk/groq';
 import { streamText } from 'ai';
 import { SYSTEM_PROMPT } from './prompt';
 import { getContact } from './tools/getContact';
@@ -27,12 +27,27 @@ function errorHandler(error: unknown) {
   return JSON.stringify(error);
 }
 
+export async function GET() {
+  return new Response(
+    JSON.stringify({
+      status: 'ready',
+      model: process.env.GROQ_MODEL || 'openai/gpt-oss-20b',
+    }),
+    {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' },
+    }
+  );
+}
+
 export async function POST(req: Request) {
   try {
     const { messages } = await req.json();
     console.log('[CHAT-API] Incoming messages:', messages);
 
-    messages.unshift(SYSTEM_PROMPT);
+    // Keep only recent messages to prevent token explosion on Groq 8000 TPM limit
+    const recentMessages = Array.isArray(messages) ? messages.slice(-3) : [];
+    const conversation = [SYSTEM_PROMPT, ...recentMessages];
 
     const tools = {
       getProjects,
@@ -43,12 +58,12 @@ export async function POST(req: Request) {
       getSports,
       getCrazy,
       getInternship,
-      getWeather,
     };
 
+    const modelName = process.env.GROQ_MODEL || 'openai/gpt-oss-20b';
     const result = streamText({
-      model: mistral('mistral-large-latest'),
-      messages,
+      model: groq(modelName),
+      messages: conversation,
       toolCallStreaming: true,
       tools,
       maxSteps: 2,

@@ -1,146 +1,213 @@
 'use client';
 
-import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { motion } from 'framer-motion';
-import { Code, Cpu, PenTool, Users } from 'lucide-react';
+import React from 'react';
+import { motion, type Variants } from 'framer-motion';
+import { 
+  Code2, 
+  Cpu, 
+  Database, 
+  Wrench, 
+  Award, 
+  CheckCircle2, 
+  Flame, 
+  Sparkles,
+  Layers
+} from 'lucide-react';
+
+interface SkillCategory {
+  category: string;
+  subtitle: string;
+  icon: React.ReactNode;
+  accent: string;
+  glow: string;
+  skills: { name: string; level?: string }[];
+}
 
 const Skills = () => {
-  const skillsData = [
+  const categories: SkillCategory[] = [
     {
-      category: 'Languages & Web Development',
-      icon: <Code className="h-5 w-5" />,
+      category: 'Languages',
+      subtitle: 'Core programming & data structures',
+      icon: <Code2 className="h-5 w-5 text-blue-400" />,
+      accent: 'border-blue-500/30 bg-blue-500/5',
+      glow: 'from-blue-500/10 to-transparent',
       skills: [
-        'Java',
-        
-        'MongoDB',
-        'JavaScript',
-        'React',
-        'Next.js',
-        'Node.js',
-        'HTML/CSS',
-        'Tailwind CSS',
-        'Bootstrap',
+        { name: 'Java (DSA Specialization)' },
+        { name: 'Kotlin (Android)' },
+        { name: 'TypeScript' },
+        { name: 'JavaScript (ES6+)' },
+        { name: 'SQL' },
       ],
-      color: 'bg-blue-50 text-blue-600 border border-blue-200',
-    },
-    
-    {
-      category: 'Tools & Platforms',
-      icon: <PenTool className="h-5 w-5" />,
-      skills: [
-        'Git',
-        'GitHub', 
-        'VS Code', 
-        'Docker',
-        'Discord',
-      ],
-      color: 'bg-indigo-50 text-indigo-600 border border-indigo-200',
     },
     {
-      category: 'Soft Skills',
-      icon: <Users className="h-5 w-5" />,
+      category: 'Frameworks & Mobile',
+      subtitle: 'Native Android & modern web',
+      icon: <Cpu className="h-5 w-5 text-purple-400" />,
+      accent: 'border-purple-500/30 bg-purple-500/5',
+      glow: 'from-purple-500/10 to-transparent',
       skills: [
-        'Data-driven decision making',
-        'Problem-solving',
-        'Analytical thinking',
-        'Communication',
-        'Teamwork',
-        'Quick learner',
+        { name: 'Android (Jetpack Compose)' },
+        { name: 'React.js' },
+        { name: 'Next.js 15 (App Router)' },
+        { name: 'Node.js' },
+        { name: 'Express.js' },
+        { name: 'Tailwind CSS' },
+        { name: 'Framer Motion' },
       ],
-      color: 'bg-amber-50 text-amber-600 border border-amber-200',
+    },
+    {
+      category: 'Databases, Cloud & APIs',
+      subtitle: 'Real-time state, auth & persistence',
+      icon: <Database className="h-5 w-5 text-emerald-400" />,
+      accent: 'border-emerald-500/30 bg-emerald-500/5',
+      glow: 'from-emerald-500/10 to-transparent',
+      skills: [
+        { name: 'Firebase & Firestore' },
+        { name: 'MongoDB & Mongoose' },
+        { name: 'Socket.io (WebSockets)' },
+        { name: 'JDBC & Relational DBs' },
+        { name: 'Razorpay Payment Gateway' },
+        { name: 'Groq & OpenAI APIs' },
+      ],
+    },
+    {
+      category: 'Tools & DevOps',
+      subtitle: 'Workflow, versioning & shipping',
+      icon: <Wrench className="h-5 w-5 text-amber-400" />,
+      accent: 'border-amber-500/30 bg-amber-500/5',
+      glow: 'from-amber-500/10 to-transparent',
+      skills: [
+        { name: 'Git & GitHub' },
+        { name: 'Docker' },
+        { name: 'Postman' },
+        { name: 'VS Code & Android Studio' },
+        { name: 'Vercel Deployment' },
+        { name: 'JWT & Authentication' },
+      ],
     },
   ];
 
-  // Animation variants
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
+      transition: { staggerChildren: 0.1 },
     },
   };
 
-  const itemVariants = {
+  const cardVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5, ease: [0.19, 1, 0.22, 1] },
-    },
-  };
-
-  const badgeVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.3, ease: 'easeOut' },
+      transition: { duration: 0.5, ease: 'easeOut' },
     },
   };
 
   return (
     <motion.div
-      initial={{ scale: 0.98, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ duration: 0.6, ease: [0.19, 1, 0.22, 1] }}
-      className="mx-auto w-full max-w-5xl rounded-4xl"
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="mx-auto w-full max-w-5xl py-4 space-y-6 font-sans"
     >
-      <Card className="w-full border-none bg-transparent px-0 pb-12 text-black shadow-none dark:text-white">
-        <CardHeader className="px-0 pb-1">
-          <CardTitle className="text-primary px-0 text-4xl font-bold">
-            Skills & Expertise
-          </CardTitle>
-        </CardHeader>
+      {/* Header */}
+      <div className="flex flex-col space-y-1">
+        <div className="flex items-center gap-2">
+          <span className="flex h-2 w-2 rounded-full bg-blue-500 animate-pulse" />
+          <span className="text-xs font-bold uppercase tracking-wider text-blue-500 dark:text-blue-400">
+            Technical Stack
+          </span>
+        </div>
+        <h2 className="text-3xl font-extrabold tracking-tight text-neutral-900 dark:text-white sm:text-4xl">
+          Skills & Core Competencies
+        </h2>
+        <p className="text-sm text-neutral-600 dark:text-neutral-400 max-w-2xl">
+          A blend of algorithmic foundations, native Android development, and full-stack real-time web engineering.
+        </p>
+      </div>
 
-        <CardContent className="px-0">
+      {/* DSA & Problem Solving Highlight Banner */}
+      <div className="relative overflow-hidden rounded-3xl border border-purple-500/30 bg-gradient-to-r from-purple-900/20 via-indigo-900/20 to-blue-900/20 p-6 backdrop-blur-xl shadow-xl">
+        <div className="absolute top-0 right-0 -mt-8 -mr-8 h-36 w-36 rounded-full bg-purple-500/10 blur-3xl" />
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <span className="rounded-full bg-yellow-500/20 p-1.5 text-yellow-400 border border-yellow-500/30">
+                <Flame size={18} />
+              </span>
+              <span className="text-xs font-bold tracking-wider uppercase text-yellow-400">
+                Competitive Programming & DSA
+              </span>
+            </div>
+            <h3 className="text-xl font-bold text-neutral-900 dark:text-white flex items-center gap-2">
+              200+ Problems Solved on GeeksforGeeks
+              <Sparkles size={18} className="text-purple-400" />
+            </h3>
+            <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-300 max-w-xl leading-relaxed">
+              Strong focus on optimized time/space complexity, data structures (Trees, Graphs, Dynamic Programming, Heaps), and object-oriented architecture in Java.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap md:flex-col gap-2 shrink-0">
+            <div className="flex items-center gap-2 rounded-2xl bg-white/10 dark:bg-white/5 border border-white/10 px-3.5 py-2 text-xs font-semibold text-neutral-800 dark:text-neutral-200 backdrop-blur-md">
+              <Award size={15} className="text-blue-400" />
+              DSA Certified (Apna College)
+            </div>
+            <div className="flex items-center gap-2 rounded-2xl bg-white/10 dark:bg-white/5 border border-white/10 px-3.5 py-2 text-xs font-semibold text-neutral-800 dark:text-neutral-200 backdrop-blur-md">
+              <CheckCircle2 size={15} className="text-green-400" />
+              Full Stack Web Certified
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* 4 Skill Category Cards Grid */}
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="grid grid-cols-1 md:grid-cols-2 gap-4"
+      >
+        {categories.map((cat, idx) => (
           <motion.div
-            className="space-y-8 px-0"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
+            key={idx}
+            variants={cardVariants}
+            className={`group relative overflow-hidden rounded-3xl border ${cat.accent} bg-white/40 dark:bg-neutral-900/40 p-6 backdrop-blur-xl shadow-lg transition-all duration-300 hover:scale-[1.01] hover:border-white/20`}
           >
-            {skillsData.map((section, index) => (
-              <motion.div
-                key={index}
-                className="space-y-3 px-0"
-                variants={itemVariants}
-              >
-                <div className="flex items-center gap-2">
-                  {section.icon}
-                  <h3 className="text-accent-foreground text-lg font-semibold">
-                    {section.category}
-                  </h3>
-                </div>
+            {/* Ambient Corner Glow */}
+            <div className={`absolute top-0 right-0 h-32 w-32 bg-gradient-to-bl ${cat.glow} blur-2xl pointer-events-none`} />
 
-                <motion.div
-                  className="flex flex-wrap gap-2"
-                  variants={containerVariants}
-                  initial="hidden"
-                  animate="visible"
+            {/* Category Header */}
+            <div className="flex items-start gap-3.5 mb-4">
+              <div className="rounded-2xl bg-neutral-100 dark:bg-neutral-800/90 p-2.5 shadow-sm border border-neutral-200 dark:border-white/10 group-hover:scale-105 transition-transform">
+                {cat.icon}
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-neutral-900 dark:text-white">
+                  {cat.category}
+                </h3>
+                <p className="text-xs text-neutral-500 dark:text-neutral-400">
+                  {cat.subtitle}
+                </p>
+              </div>
+            </div>
+
+            {/* Skill Chips */}
+            <div className="flex flex-wrap gap-2 pt-1">
+              {cat.skills.map((skill, sIdx) => (
+                <span
+                  key={sIdx}
+                  className="group/chip relative flex items-center gap-1.5 rounded-full border border-neutral-200/80 bg-white/80 px-3 py-1.5 text-xs font-medium text-neutral-800 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-400 hover:shadow-md dark:border-white/10 dark:bg-neutral-800/80 dark:text-neutral-200 dark:hover:border-purple-400/80 dark:hover:bg-neutral-700/80"
                 >
-                  {section.skills.map((skill, idx) => (
-                    <motion.div
-                      key={idx}
-                      variants={badgeVariants}
-                      whileHover={{
-                        scale: 1.04,
-                        transition: { duration: 0.2 },
-                      }}
-                    >
-                      <Badge className={`border px-3 py-1.5 font-normal`}>
-                        {skill}
-                      </Badge>
-                    </motion.div>
-                  ))}
-                </motion.div>
-              </motion.div>
-            ))}
+                  <span className="h-1.5 w-1.5 rounded-full bg-neutral-400 dark:bg-neutral-500 group-hover/chip:bg-blue-500 dark:group-hover/chip:bg-purple-400 transition-colors" />
+                  {skill.name}
+                </span>
+              ))}
+            </div>
           </motion.div>
-        </CardContent>
-      </Card>
+        ))}
+      </motion.div>
     </motion.div>
   );
 };

@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <linearGradient id="qcBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b132b"/>
+      <stop offset="50%" stop-color="#1c2541"/>
+      <stop offset="100%" stop-color="#090e1f"/>
+    </linearGradient>
+    <linearGradient id="qcBubble" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3a86ff"/>
+      <stop offset="100%" stop-color="#4361ee"/>
+    </linearGradient>
+    <filter id="qcGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#qcBg)"/>
+  <circle cx="280" cy="200" r="180" fill="#3a86ff" opacity="0.12" filter="url(#qcGlow)"/>
+  <circle cx="920" cy="420" r="200" fill="#4361ee" opacity="0.12" filter="url(#qcGlow)"/>
+
+  <!-- Left: Messaging Chat Interface Mockup -->
+  <g transform="translate(100, 80)">
+    <rect x="0" y="0" width="360" height="510" rx="28" fill="#131c38" stroke="#253561" stroke-width="2.5"/>
+    
+    <!-- Header -->
+    <rect x="20" y="24" width="40" height="40" rx="20" fill="#3a86ff"/>
+    <text x="32" y="50" font-family="system-ui, sans-serif" font-size="18" fill="#ffffff">💬</text>
+    <text x="72" y="44" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#ffffff">QuickChat</text>
+    <circle cx="75" cy="56" r="4" fill="#22c55e"/>
+    <text x="85" y="60" font-family="system-ui, sans-serif" font-size="11" fill="#86efac">Active WebSocket</text>
+
+    <!-- Chat Messages Stream -->
+    <g transform="translate(20, 85)">
+      <!-- Message Received -->
+      <rect x="0" y="0" width="220" height="50" rx="14" fill="#1e2c54"/>
+      <text x="14" y="24" font-family="system-ui, sans-serif" font-size="12" fill="#cbd5e1">Hey Abhishek! Is QuickChat live?</text>
+      <text x="14" y="40" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">10:42 AM</text>
+
+      <!-- Message Sent -->
+      <rect x="80" y="65" width="240" height="56" rx="14" fill="url(#qcBubble)"/>
+      <text x="94" y="89" font-family="system-ui, sans-serif" font-size="12" fill="#ffffff">Yes! Real-time bidirectional socket</text>
+      <text x="94" y="106" font-family="system-ui, sans-serif" font-size="12" fill="#ffffff">with JWT &amp; cookie sessions ⚡</text>
+
+      <!-- Message Received -->
+      <rect x="0" y="135" width="240" height="50" rx="14" fill="#1e2c54"/>
+      <text x="14" y="159" font-family="system-ui, sans-serif" font-size="12" fill="#cbd5e1">Latency is super low! Love the UI.</text>
+      <text x="14" y="175" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">10:43 AM</text>
+
+      <!-- Message Sent -->
+      <rect x="100" y="200" width="220" height="42" rx="14" fill="url(#qcBubble)"/>
+      <text x="114" y="226" font-family="system-ui, sans-serif" font-size="12" fill="#ffffff">Built with Socket.io &amp; MongoDB!</text>
+    </g>
+
+    <!-- Input Bar -->
+    <rect x="20" y="440" width="320" height="46" rx="23" fill="#1a274a" stroke="#2c3e73"/>
+    <text x="36" y="468" font-family="system-ui, sans-serif" font-size="13" fill="#64748b">Type a real-time message...</text>
+    <circle cx="316" cy="463" r="16" fill="#3a86ff"/>
+    <text x="310" y="469" font-family="system-ui, sans-serif" font-size="14" fill="#ffffff">➤</text>
+  </g>
+
+  <!-- Right: Details -->
+  <g transform="translate(540, 140)">
+    <rect x="0" y="0" width="160" height="28" rx="14" fill="#3a86ff" opacity="0.15"/>
+    <text x="14" y="19" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#60a5fa" letter-spacing="1">REAL-TIME SOCIAL</text>
+
+    <text x="0" y="75" font-family="system-ui, -apple-system, sans-serif" font-size="44" font-weight="800" fill="#ffffff">QuickChat</text>
+    <text x="0" y="110" font-family="system-ui, sans-serif" font-size="18" fill="#94a3b8">Real-Time Messaging Application with WebSockets &amp; Auth</text>
+
+    <g transform="translate(0, 150)">
+      <rect x="0" y="0" width="280" height="85" rx="14" fill="#141f3e" stroke="#253561"/>
+      <text x="20" y="34" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#ffffff">WebSocket Streaming</text>
+      <text x="20" y="62" font-family="system-ui, sans-serif" font-size="12" fill="#93c5fd">Instant data exchange &amp; presence</text>
+
+      <rect x="300" y="0" width="280" height="85" rx="14" fill="#141f3e" stroke="#253561"/>
+      <text x="320" y="34" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#ffffff">Secure Auth &amp; Cookies</text>
+      <text x="320" y="62" font-family="system-ui, sans-serif" font-size="12" fill="#93c5fd">JWT authentication &amp; bcrypt hashing</text>
+    </g>
+
+    <g transform="translate(0, 275)">
+      <text x="0" y="0" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#93c5fd" letter-spacing="1">STACK</text>
+      <g transform="translate(0, 15)">
+        <rect x="0" y="0" width="95" height="30" rx="8" fill="#1c2b54"/>
+        <text x="14" y="20" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#bfdbfe">Socket.io</text>
+        <rect x="105" y="0" width="85" height="30" rx="8" fill="#1c2b54"/>
+        <text x="119" y="20" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#bfdbfe">React</text>
+        <rect x="200" y="0" width="85" height="30" rx="8" fill="#1c2b54"/>
+        <text x="214" y="20" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#bfdbfe">Node.js</text>
+        <rect x="295" y="0" width="95" height="30" rx="8" fill="#1c2b54"/>
+        <text x="309" y="20" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#bfdbfe">MongoDB</text>
+        <rect x="400" y="0" width="70" height="30" rx="8" fill="#1c2b54"/>
+        <text x="414" y="20" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#bfdbfe">JWT</text>
+      </g>
+    </g>
+  </g>
+</svg>

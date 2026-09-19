@@ -27,7 +27,7 @@ const MOTION_CONFIG = {
     duration: 0.3,
     ease: 'easeOut',
   },
-};
+} as const;
 
 export function SimplifiedChatView({
   message,
@@ -37,13 +37,14 @@ export function SimplifiedChatView({
 }: SimplifiedChatViewProps) {
   if (message.role !== 'assistant') return null;
 
-  // Extract tool invocations that are in "result" state
+  // Extract tool invocations that are in "result" or "call" state for instant display
   const toolInvocations =
     message.parts
       ?.filter(
         (part) =>
           part.type === 'tool-invocation' &&
-          part.toolInvocation?.state === 'result'
+          (part.toolInvocation?.state === 'result' ||
+            part.toolInvocation?.state === 'call')
       )
       .map((part) =>
         part.type === 'tool-invocation' ? part.toolInvocation : null

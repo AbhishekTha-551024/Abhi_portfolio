@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import { Award, Code, GraduationCap, Mail, MessageSquare } from 'lucide-react';
 import React from 'react';
 
@@ -30,7 +30,7 @@ const ChatLanding: React.FC<ChatLandingProps> = ({ submitQuery }) => {
   ];
 
   // Animation variants for staggered animation
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -40,7 +40,7 @@ const ChatLanding: React.FC<ChatLandingProps> = ({ submitQuery }) => {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,

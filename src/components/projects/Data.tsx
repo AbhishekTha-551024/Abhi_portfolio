@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import { ChevronRight, Link } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
+import MagicCalcSimulator from './MagicCalcSimulator';
 
 // --- PROJECT DATABASE ---
 const PROJECT_CONTENT = [
@@ -18,8 +19,7 @@ const PROJECT_CONTENT = [
       { name: 'GitHub Repository', url: 'https://github.com/AbhishekTha-551024/SwiftShop' },
     ],
     images: [
-      { src: '/projects/swiftshop-home.png', alt: 'SwiftShop Storefront' },
-      { src: '/projects/swiftshop-admin.png', alt: 'SwiftShop Admin' },
+      { src: '/projects/swiftshop-preview.svg', alt: 'SwiftShop Storefront & Orders' },
     ],
   },
   {
@@ -35,25 +35,25 @@ const PROJECT_CONTENT = [
       { name: 'GitHub Repository', url: 'https://github.com/AbhishekTha-551024/QUICKCHAT' },
     ],
     images: [
-      { src: '/projects/quickchat-home.png', alt: 'QuickChat Messaging Interface' },
-      { src: '/projects/quickchat-login.png', alt: 'Secure Authentication Screen' },
+      { src: '/projects/quickchat-preview.svg', alt: 'QuickChat Messaging Interface' },
     ],
   },
   {
-    title: 'CarRental',
+    title: 'Magic Calculator Pro',
     description:
-      '{CarRental (2025):} Built a full-stack car rental platform where users can book cars and owners can list their vehicles. Implemented authentication, booking management, and payment integration. Designed responsive UI and managed data using MongoDB and Express.',
+      '{Magic Calculator Pro – Android Product (2026):} Built and independently developed a production-ready Android calculator application with advanced calculation features and a premium subscription system. Implemented Firebase Authentication with Email and Google sign-in and Firestore for user management and cloud data persistence. Integrated Razorpay Checkout for subscription payments and designed a modular calculation engine using strategy-based components for extensibility. Developed onboarding experiences including Free Tour and Pro Masterclass with persistent user progress tracking. Kotlin, Jetpack Compose, Firebase, Firestore, Razorpay, Android, Git.',
     techStack: [
-      'MongoDB', 'Express.js', 'React', 'Node.js', 'Tailwind CSS', 'Framer Motion', 'JWT'
+      'Kotlin', 'Jetpack Compose', 'Android', 'Firebase', 'Firestore', 'Razorpay', 'Git'
     ],
-    date: 'February 2025',
+    date: '2026',
     links: [
-      { name: 'Live Demo', url: 'https://car-rental-k18a.vercel.app/' },
-      { name: 'GitHub Repository', url: 'https://github.com/AbhishekTha-551024/CarRental' },
+      { name: 'Live Website', url: 'https://magiccalcs.in/' },
+      { name: 'GitHub Repository', url: 'https://github.com/AbhishekTha-551024' },
     ],
     images: [
-      { src: '/projects/carrental-home.png', alt: 'CarRental Home Interface' },
-      { src: '/projects/carrental-login.png', alt: 'CarRental Login Screen' },
+      { src: '/projects/magic-calc-hero.png', alt: 'Magic Calculator Pro - The Calculator That Isn\'t Just a Calculator' },
+      { src: '/projects/magic-calc-dateforce.png', alt: 'Magic Calculator Pro - Automatic Date Force Feature' },
+      { src: '/projects/magic-calc-features.png', alt: 'Magic Calculator Pro - Identical Native Calculator Interface' },
     ],
   }
 ];
@@ -127,6 +127,11 @@ const ProjectContent = ({ project }: { project: ProjectProps }) => {
         </div>
       )}
 
+      {/* Interactive Simulator for Magic Calculator */}
+      {normalizeString(project.title) === 'magiccalculatorpro' && (
+        <MagicCalcSimulator />
+      )}
+
       {/* Images */}
       {projectData.images?.length > 0 && (
         <div className="space-y-6">
@@ -136,7 +141,7 @@ const ProjectContent = ({ project }: { project: ProjectProps }) => {
                 key={index}
                 className="relative aspect-video overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800"
               >
-                <Image src={image.src} alt={image.alt} fill className="object-cover" />
+                <Image src={image.src} alt={image.alt} fill className="object-cover" unoptimized />
               </div>
             ))}
           </div>
@@ -151,19 +156,31 @@ export const data = [
   {
     category: 'E-Commerce & Management',
     title: 'SwiftShop',
-    src: '/projects/swiftshop-preview.png', 
+    src: '/projects/swiftshop-preview.svg', 
+    tags: ['React', 'Node.js', 'Socket.io', 'MongoDB'],
+    liveUrl: 'https://swift-shop-lac.vercel.app/',
+    githubUrl: 'https://github.com/AbhishekTha-551024/SwiftShop',
+    accentColor: '#10b981',
     content: <ProjectContent project={{ title: 'SwiftShop' }} />,
   },
   {
     category: 'Real-Time Social Media',
     title: 'QuickChat',
-    src: '/projects/quickchat-preview.png', 
+    src: '/projects/quickchat-preview.svg', 
+    tags: ['Socket.io', 'Node.js', 'React', 'MongoDB'],
+    liveUrl: 'https://quickchat-drab.vercel.app/',
+    githubUrl: 'https://github.com/AbhishekTha-551024/QUICKCHAT',
+    accentColor: '#3b82f6',
     content: <ProjectContent project={{ title: 'QuickChat' }} />,
   },
   {
-    category: 'Real-Time CarRental',
-    title: 'CarRental',
-    src: '/projects/carrental-preview.png', 
-    content: <ProjectContent project={{ title: 'CarRental' }} />,
+    category: 'Android & Production Product',
+    title: 'Magic Calculator Pro',
+    src: '/projects/magic-calc-card.png', 
+    tags: ['Kotlin', 'Compose', 'Firebase', 'Razorpay'],
+    liveUrl: 'https://magiccalcs.in/',
+    githubUrl: 'https://github.com/AbhishekTha-551024',
+    accentColor: '#a855f7',
+    content: <ProjectContent project={{ title: 'Magic Calculator Pro' }} />,
   },
 ];

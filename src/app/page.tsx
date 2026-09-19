@@ -4,7 +4,7 @@ import FluidCursor from '@/components/FluidCursor';
 import { Button } from '@/components/ui/button';
 import { GithubButton } from '@/components/ui/github-button';
 import WelcomeModal from '@/components/welcome-modal';
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import {
   ArrowRight,
   BriefcaseBusiness,
@@ -18,6 +18,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
+import TerminalModal from '@/components/terminal/TerminalModal';
 
 /* ---------- quick-question data ---------- */
 const questions = {
@@ -46,7 +47,7 @@ export default function Home() {
     router.push(`/chat?query=${encodeURIComponent(query)}`);
   };
 
-  const topElementVariants = {
+  const topElementVariants: Variants = {
     hidden: { opacity: 0, y: -60 },
     visible: {
       opacity: 1,
@@ -55,7 +56,7 @@ export default function Home() {
     },
   };
 
-  const bottomElementVariants = {
+  const bottomElementVariants: Variants = {
     hidden: { opacity: 0, y: 80 },
     visible: {
       opacity: 1,
@@ -65,6 +66,18 @@ export default function Home() {
   };
 
   useEffect(() => {
+    // Prefetch chat route for instant opening
+    router.prefetch('/chat');
+
+    // Warm up /chat and /api/chat in dev mode so first-time navigation is instant
+    if (typeof window !== 'undefined') {
+      fetch('/chat', { priority: 'low' }).catch(() => {});
+      fetch('/api/chat', { priority: 'low' }).catch(() => {});
+      Object.values(questions).forEach((q) => {
+        router.prefetch(`/chat?query=${encodeURIComponent(q)}`);
+      });
+    }
+
     const img = new window.Image();
     img.src = '/landing-memojis.png';
 
@@ -79,7 +92,7 @@ export default function Home() {
     linkMp4.as = 'video';
     linkMp4.href = '/final_memojis_ios.mp4';
     document.head.appendChild(linkMp4);
-  }, []);
+  }, [router]);
 
   return (
     <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-4 pb-10 md:pb-20 bg-white dark:bg-black transition-colors duration-500">
@@ -87,10 +100,11 @@ export default function Home() {
       {/* 1. FIXED TOP CONTROLS (Always Visible) */}
       <div className="fixed top-6 right-6 md:right-8 z-[100] flex items-center gap-2">
         <ThemeToggle />
+        <TerminalModal />
 
         <a
           href="/Resume_Abhishek_Singh_AI.pdf"
-          download
+          download="Abhishek_Singh_Resume.pdf"
           className="group flex items-center gap-2 rounded-full border border-neutral-200 bg-white/40 px-4 py-2 text-sm font-semibold text-black shadow-lg backdrop-blur-xl transition-all hover:bg-white/70 hover:scale-105 active:scale-95 dark:border-white/10 dark:bg-neutral-900/40 dark:text-white dark:hover:bg-neutral-800"
         >
           <Download size={16} className="transition-transform group-hover:-translate-y-0.5" />
@@ -131,7 +145,7 @@ export default function Home() {
 
       {/* Header Content */}
       <motion.div
-        className="z-10 mt-24 mb-8 flex flex-col items-center text-center md:mt-4 md:mb-12"
+        className="z-10 mt-24 mb-6 flex flex-col items-center text-center md:mt-4 md:mb-8"
         variants={topElementVariants}
         initial="hidden"
         animate="visible"
@@ -144,18 +158,37 @@ export default function Home() {
         <h1 className="max-w-4xl text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
           Interactive AI Portfolio
         </h1>
+
+        {/* Credibility Status Badges */}
+        <div className="mt-4 flex flex-wrap items-center justify-center gap-2 px-2 text-xs font-semibold text-neutral-600 dark:text-neutral-300">
+          <span className="flex items-center gap-1.5 rounded-full border border-neutral-200/80 bg-neutral-100/80 px-3.5 py-1.5 backdrop-blur-md dark:border-white/10 dark:bg-neutral-900/60 shadow-xs">
+            <span>🚀</span> 3+ Production Projects
+          </span>
+          <span className="flex items-center gap-1.5 rounded-full border border-neutral-200/80 bg-neutral-100/80 px-3.5 py-1.5 backdrop-blur-md dark:border-white/10 dark:bg-neutral-900/60 shadow-xs">
+            <span>💼</span> Full-Stack Intern @ UCT
+          </span>
+          <span className="flex items-center gap-1.5 rounded-full border border-neutral-200/80 bg-neutral-100/80 px-3.5 py-1.5 backdrop-blur-md dark:border-white/10 dark:bg-neutral-900/60 shadow-xs">
+            <span>🧠</span> 200+ DSA Solved
+          </span>
+          <span className="flex items-center gap-1.5 rounded-full border border-neutral-200/80 bg-neutral-100/80 px-3.5 py-1.5 backdrop-blur-md dark:border-white/10 dark:bg-neutral-900/60 shadow-xs">
+            <span>🎓</span> SRIT Jabalpur
+          </span>
+        </div>
       </motion.div>
 
-      {/* Center memoji */}
-      <div className="relative z-10 h-52 w-48 overflow-hidden sm:h-72 sm:w-72 drop-shadow-2xl">
-        <Image
-          src="/landing-memojis.png"
-          alt="AI portfolio memoji"
-          width={2000}
-          height={2000}
-          priority
-          className="translate-y-1 scale-[1.2] object-cover transition-transform duration-500 hover:scale-[1.25]"
-        />
+      {/* Center memoji with ambient cyber glow */}
+      <div className="relative z-10 flex items-center justify-center">
+        <div className="absolute h-56 w-56 rounded-full bg-gradient-to-tr from-purple-500/30 via-blue-500/20 to-cyan-400/30 blur-3xl pointer-events-none -z-10 animate-pulse" />
+        <div className="relative h-52 w-48 overflow-hidden sm:h-72 sm:w-72 drop-shadow-2xl">
+          <Image
+            src="/landing-memojis.png"
+            alt="AI portfolio memoji"
+            width={2000}
+            height={2000}
+            priority
+            className="translate-y-1 scale-[1.2] object-cover transition-transform duration-500 hover:scale-[1.25]"
+          />
+        </div>
       </div>
 
       {/* Input + quick questions */}
@@ -195,17 +228,24 @@ export default function Home() {
           {questionConfig.map(({ key, color, icon: Icon }) => (
             <Button
               key={key}
+              onMouseEnter={() => router.prefetch(`/chat?query=${encodeURIComponent(questions[key])}`)}
+              onTouchStart={() => router.prefetch(`/chat?query=${encodeURIComponent(questions[key])}`)}
               onClick={() => goToChat(questions[key])}
               variant="outline"
-              className="group flex flex-col h-auto aspect-square rounded-2xl bg-white/30 p-4 backdrop-blur-md transition-all hover:bg-white/50 hover:scale-105 active:scale-95 dark:bg-neutral-800/30 dark:hover:bg-neutral-800/60"
+              className="group relative flex flex-col h-auto aspect-square rounded-2xl bg-white/40 p-4 backdrop-blur-md transition-all duration-300 hover:scale-105 active:scale-95 border border-neutral-200/80 dark:border-white/10 dark:bg-neutral-900/40 hover:shadow-xl"
             >
+              {/* Dynamic hover glow matching key color */}
               <div 
-                className="flex items-center justify-center rounded-xl p-3 mb-2 transition-colors"
+                className="absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none -z-10 blur-md"
+                style={{ backgroundColor: `${color}25` }}
+              />
+              <div 
+                className="flex items-center justify-center rounded-xl p-3 mb-2 transition-all duration-300 group-hover:scale-110 shadow-xs"
                 style={{ backgroundColor: `${color}20` }}
               >
                 <Icon size={24} style={{ color: color }} />
               </div>
-              <span className="text-xs font-semibold text-neutral-700 dark:text-neutral-200">{key}</span>
+              <span className="text-xs font-bold text-neutral-800 dark:text-neutral-200 tracking-wide">{key}</span>
             </Button>
           ))}
         </div>

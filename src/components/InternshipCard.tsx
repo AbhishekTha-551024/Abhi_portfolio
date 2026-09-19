@@ -55,9 +55,9 @@ const InternshipCard = () => {
         <div className="flex items-start gap-3">
           <CalendarDays className="mt-1 h-5 w-5 text-blue-500" />
           <div>
-            <p className="text-foreground text-sm font-medium">Duration</p>
+            <p className="text-foreground text-sm font-medium">Availability</p>
             <p className="text-muted-foreground text-sm">
-              currently open for contributions August (2025)
+              Open for Full-Time / Internship roles (B.E. CSE 2022-2026)
             </p>
           </div>
         </div>
@@ -66,7 +66,7 @@ const InternshipCard = () => {
           <div>
             <p className="text-foreground text-sm font-medium">Location</p>
             <p className="text-muted-foreground text-sm">
-              Preferably Jabalpur
+              Jabalpur, India (Open to Remote & On-Site)
             </p>
           </div>
         </div>
@@ -75,22 +75,22 @@ const InternshipCard = () => {
         <div className="flex items-start gap-3 sm:col-span-2">
           <Code2 className="mt-1 h-5 w-5 text-purple-500" />
           <div className="w-full">
-            <p className="text-foreground text-sm font-medium">Tech stack</p>
+            <p className="text-foreground text-sm font-medium">Core Tech Stack</p>
             <div className="text-muted-foreground grid grid-cols-1 gap-y-1 text-sm sm:grid-cols-2">
               <ul className="decoration-none list-disc pl-4">
-                <li>JavaScript, Next.js, mongoDB</li>
-                <li>OpenAI, Mistral, Claude</li>
-                <li>Prompt engineering, fine-tuning</li>
+                <li>Java (DSA), Kotlin, TypeScript</li>
+                <li>Android (Jetpack Compose), React, Next.js</li>
+                <li>Node.js, Express.js, MongoDB, SQL</li>
               </ul>
               <ul className="list-disc pl-4">
-                <li>JavaScript, React</li>
-                <li>Hugging Face Transformers</li>
+                <li>Firebase, Firestore, Razorpay</li>
+                <li>Groq AI, Socket.io, Git, Docker</li>
                 <li>
                   <a
                     href="/chat?query=What%20are%20your%20skills%3F%20Give%20me%20a%20list%20of%20your%20soft%20and%20hard%20skills."
                     className="cursor-pointer items-center text-blue-500 underline"
                   >
-                    See more
+                    View all skills
                   </a>
                 </li>
               </ul>
@@ -105,9 +105,8 @@ const InternshipCard = () => {
           What I bring
         </p>
         <p className="text-foreground text-sm">
-          Real-world AI dev experience. <br /> 
-          Blending AI passion with hands-on development to bring tech ideas to life. <br /> 
-          I ship fast, and love building useful things that actually work.
+          Hands-on full-stack development experience from <strong>Universal CodeTech (UCT)</strong> and proven product-building skills with <strong>Magic Calculator Pro</strong> (live Android app with Razorpay & Firebase), <strong>QuickChat</strong>, and <strong>SwiftShop</strong>.<br />
+          Strong foundation in Data Structures & Algorithms (200+ solved on GeeksforGeeks) and clean object-oriented architecture.
         </p>
       </div>
 
@@ -115,9 +114,7 @@ const InternshipCard = () => {
       <div className="mt-8">
         <p className="text-foreground mb-2 text-lg font-semibold">Goal</p>
         <p className="text-foreground text-sm">
-          Join a bold, innovative team building AI-powered tools that matter. I
-          want to improve fast, contribute hard, and leave a mark. I’m fast,
-          flexible, and HUNGRYYYYY 🔥
+          Join an engineering-driven team where I can contribute high-impact features, learn from senior developers, and build resilient, scalable software products.
         </p>
       </div>
 

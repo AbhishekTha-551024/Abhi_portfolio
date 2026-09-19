@@ -19,6 +19,7 @@ import WelcomeModal from '@/components/welcome-modal';
 import { Info } from 'lucide-react';
 import { GithubButton } from '../ui/github-button';
 import HelperBoost from './HelperBoost';
+import TerminalModal from '../terminal/TerminalModal';
 
 // ClientOnly component for client-side rendering
 //@ts-ignore
@@ -115,15 +116,45 @@ const MOTION_CONFIG = {
     duration: 0.3,
     ease: 'easeOut',
   },
-};
+} as const;
 
 const Chat = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
+  const playPromiseRef = useRef<Promise<void> | null>(null);
   const searchParams = useSearchParams();
   const initialQuery = searchParams.get('query');
   const [autoSubmitted, setAutoSubmitted] = useState(false);
-  const [loadingSubmit, setLoadingSubmit] = useState(false);
+  const [loadingSubmit, setLoadingSubmit] = useState(Boolean(initialQuery));
   const [isTalking, setIsTalking] = useState(false);
+
+  const safePlay = () => {
+    if (videoRef.current) {
+      playPromiseRef.current = videoRef.current.play();
+      if (playPromiseRef.current !== undefined) {
+        playPromiseRef.current.catch((error) => {
+          if (error.name !== 'AbortError') {
+            console.warn('Video playback notice:', error);
+          }
+        });
+      }
+    }
+  };
+
+  const safePause = () => {
+    if (videoRef.current) {
+      if (playPromiseRef.current) {
+        playPromiseRef.current
+          .then(() => {
+            videoRef.current?.pause();
+          })
+          .catch(() => {
+            // Already handled in safePlay
+          });
+      } else {
+        videoRef.current.pause();
+      }
+    }
+  };
 
   const {
     messages,
@@ -142,26 +173,15 @@ const Chat = () => {
       if (response) {
         setLoadingSubmit(false);
         setIsTalking(true);
-        if (videoRef.current) {
-          videoRef.current.play().catch((error) => {
-            console.error('Failed to play video:', error);
-          });
-        }
       }
     },
     onFinish: () => {
       setLoadingSubmit(false);
       setIsTalking(false);
-      if (videoRef.current) {
-        videoRef.current.pause();
-      }
     },
     onError: (error) => {
       setLoadingSubmit(false);
       setIsTalking(false);
-      if (videoRef.current) {
-        videoRef.current.pause();
-      }
       console.error('Chat error:', error.message, error.cause);
       toast.error(`Error: ${error.message}`);
     },
@@ -192,7 +212,8 @@ const Chat = () => {
         result.currentAIMessage.parts?.some(
           (part) =>
             part.type === 'tool-invocation' &&
-            part.toolInvocation?.state === 'result'
+            (part.toolInvocation?.state === 'result' ||
+              part.toolInvocation?.state === 'call')
         ) || false;
     }
 
@@ -215,7 +236,10 @@ const Chat = () => {
 
   //@ts-ignore
   const submitQuery = (query) => {
-    if (!query.trim() || isToolInProgress) return;
+    if (!query || !query.trim()) return;
+    if (isLoading) {
+      stop();
+    }
     setLoadingSubmit(true);
     append({
       role: 'user',
@@ -228,7 +252,7 @@ const Chat = () => {
       videoRef.current.loop = true;
       videoRef.current.muted = true;
       videoRef.current.playsInline = true;
-      videoRef.current.pause();
+      safePause();
     }
 
     if (initialQuery && !autoSubmitted) {
@@ -239,21 +263,20 @@ const Chat = () => {
   }, [initialQuery, autoSubmitted]);
 
   useEffect(() => {
-    if (videoRef.current) {
-      if (isTalking) {
-        videoRef.current.play().catch((error) => {
-          console.error('Failed to play video:', error);
-        });
-      } else {
-        videoRef.current.pause();
-      }
+    if (isTalking) {
+      safePlay();
+    } else {
+      safePause();
     }
   }, [isTalking]);
 
   //@ts-ignore
   const onSubmit = (e) => {
     e.preventDefault();
-    if (!input.trim() || isToolInProgress) return;
+    if (!input.trim()) return;
+    if (isLoading) {
+      stop();
+    }
     submitQuery(input);
     setInput('');
   };
@@ -262,14 +285,11 @@ const Chat = () => {
     stop();
     setLoadingSubmit(false);
     setIsTalking(false);
-    if (videoRef.current) {
-      videoRef.current.pause();
-    }
   };
 
   // Check if this is the initial empty state (no messages)
   const isEmptyState =
-    !currentAIMessage && !latestUserMessage && !loadingSubmit;
+    !currentAIMessage && !latestUserMessage && !loadingSubmit && !initialQuery;
 
   // Calculate header height based on hasActiveTool
   const headerHeight = hasActiveTool ? 100 : 180;
@@ -284,6 +304,7 @@ const Chat = () => {
             </div>
           }
         />
+        <TerminalModal />
         <div className="">
           <GithubButton
             animationDuration={1.5}

@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0e1a"/>
+      <stop offset="50%" stop-color="#121829"/>
+      <stop offset="100%" stop-color="#070a12"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a233a"/>
+      <stop offset="100%" stop-color="#0f1523"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="50%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+    <linearGradient id="proBadge" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#fbbf24"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="675" fill="url(#bgGrad)"/>
+
+  <!-- Ambient Light Orbs -->
+  <circle cx="250" cy="200" r="180" fill="#3b82f6" opacity="0.12" filter="url(#glow)"/>
+  <circle cx="950" cy="450" r="220" fill="#8b5cf6" opacity="0.15" filter="url(#glow)"/>
+
+  <!-- Left Side: App Showcase Mockup Phone -->
+  <g transform="translate(120, 60)">
+    <!-- Phone Outer Body -->
+    <rect x="0" y="0" width="280" height="550" rx="36" fill="#0d111c" stroke="#2a3550" stroke-width="3"/>
+    <!-- Phone Screen -->
+    <rect x="10" y="10" width="260" height="530" rx="28" fill="#090d16"/>
+    
+    <!-- Notch / Camera -->
+    <circle cx="140" cy="25" r="4" fill="#1e293b"/>
+    
+    <!-- App Header -->
+    <text x="24" y="55" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#ffffff">Magic Calculator</text>
+    <rect x="145" y="42" width="38" height="18" rx="5" fill="url(#proBadge)"/>
+    <text x="154" y="55" font-family="system-ui, sans-serif" font-size="10" font-weight="800" fill="#000000">PRO</text>
+    
+    <!-- Display Box -->
+    <rect x="20" y="75" width="240" height="110" rx="14" fill="url(#cardGrad)" stroke="#23304c" stroke-width="1.5"/>
+    <text x="32" y="102" font-family="monospace" font-size="11" fill="#94a3b8">∫ (x² · sin x) dx</text>
+    <text x="32" y="145" font-family="system-ui, sans-serif" font-size="22" font-weight="700" fill="#60a5fa">-x²cos x + 2x sin x</text>
+    <text x="32" y="168" font-family="system-ui, sans-serif" font-size="11" fill="#34d399">✓ Verified with Strategy Engine</text>
+
+    <!-- Navigation Chips -->
+    <rect x="20" y="200" width="68" height="24" rx="12" fill="#3b82f6" opacity="0.25"/>
+    <text x="32" y="216" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#60a5fa">Calculus</text>
+    
+    <rect x="94" y="200" width="60" height="24" rx="12" fill="#1e293b"/>
+    <text x="106" y="216" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Matrix</text>
+
+    <rect x="160" y="200" width="55" height="24" rx="12" fill="#1e293b"/>
+    <text x="172" y="216" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Graph</text>
+
+    <!-- Mini Keypad Preview -->
+    <g transform="translate(20, 240)">
+      <rect x="0" y="0" width="52" height="42" rx="10" fill="#161f33"/>
+      <text x="21" y="26" font-family="system-ui, sans-serif" font-size="16" fill="#cbd5e1">C</text>
+      <rect x="62" y="0" width="52" height="42" rx="10" fill="#161f33"/>
+      <text x="80" y="26" font-family="system-ui, sans-serif" font-size="16" fill="#cbd5e1">()</text>
+      <rect x="124" y="0" width="52" height="42" rx="10" fill="#161f33"/>
+      <text x="144" y="26" font-family="system-ui, sans-serif" font-size="16" fill="#cbd5e1">%</text>
+      <rect x="186" y="0" width="52" height="42" rx="10" fill="#3b82f6"/>
+      <text x="208" y="26" font-family="system-ui, sans-serif" font-size="18" fill="#ffffff">÷</text>
+
+      <rect x="0" y="52" width="52" height="42" rx="10" fill="#1a243b"/>
+      <text x="22" y="78" font-family="system-ui, sans-serif" font-size="16" fill="#ffffff">7</text>
+      <rect x="62" y="52" width="52" height="42" rx="10" fill="#1a243b"/>
+      <text x="84" y="78" font-family="system-ui, sans-serif" font-size="16" fill="#ffffff">8</text>
+      <rect x="124" y="52" width="52" height="42" rx="10" fill="#1a243b"/>
+      <text x="146" y="78" font-family="system-ui, sans-serif" font-size="16" fill="#ffffff">9</text>
+      <rect x="186" y="52" width="52" height="42" rx="10" fill="#3b82f6"/>
+      <text x="208" y="78" font-family="system-ui, sans-serif" font-size="18" fill="#ffffff">×</text>
+
+      <rect x="0" y="104" width="52" height="42" rx="10" fill="#1a243b"/>
+      <text x="22" y="130" font-family="system-ui, sans-serif" font-size="16" fill="#ffffff">4</text>
+      <rect x="62" y="104" width="52" height="42" rx="10" fill="#1a243b"/>
+      <text x="84" y="130" font-family="system-ui, sans-serif" font-size="16" fill="#ffffff">5</text>
+      <rect x="124" y="104" width="52" height="42" rx="10" fill="#1a243b"/>
+      <text x="146" y="130" font-family="system-ui, sans-serif" font-size="16" fill="#ffffff">6</text>
+      <rect x="186" y="104" width="52" height="42" rx="10" fill="#3b82f6"/>
+      <text x="208" y="130" font-family="system-ui, sans-serif" font-size="18" fill="#ffffff">-</text>
+
+      <rect x="0" y="156" width="52" height="42" rx="10" fill="#1a243b"/>
+      <text x="22" y="182" font-family="system-ui, sans-serif" font-size="16" fill="#ffffff">1</text>
+      <rect x="62" y="156" width="52" height="42" rx="10" fill="#1a243b"/>
+      <text x="84" y="182" font-family="system-ui, sans-serif" font-size="16" fill="#ffffff">2</text>
+      <rect x="124" y="156" width="52" height="42" rx="10" fill="#1a243b"/>
+      <text x="146" y="182" font-family="system-ui, sans-serif" font-size="16" fill="#ffffff">3</text>
+      <rect x="186" y="156" width="52" height="42" rx="10" fill="#3b82f6"/>
+      <text x="207" y="182" font-family="system-ui, sans-serif" font-size="18" fill="#ffffff">+</text>
+
+      <rect x="0" y="208" width="114" height="42" rx="10" fill="#1a243b"/>
+      <text x="52" y="234" font-family="system-ui, sans-serif" font-size="16" fill="#ffffff">0</text>
+      <rect x="124" y="208" width="52" height="42" rx="10" fill="#1a243b"/>
+      <text x="147" y="234" font-family="system-ui, sans-serif" font-size="16" fill="#ffffff">.</text>
+      <rect x="186" y="208" width="52" height="42" rx="10" fill="#10b981"/>
+      <text x="206" y="234" font-family="system-ui, sans-serif" font-size="18" fill="#ffffff">=</text>
+    </g>
+  </g>
+
+  <!-- Right Side: Features & Tech Stack Badges -->
+  <g transform="translate(460, 100)">
+    <!-- Project Subtitle -->
+    <rect x="0" y="0" width="140" height="28" rx="14" fill="#3b82f6" opacity="0.15"/>
+    <text x="16" y="19" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#60a5fa" letter-spacing="1">ANDROID PRODUCT</text>
+
+    <!-- Main Title -->
+    <text x="0" y="70" font-family="system-ui, -apple-system, sans-serif" font-size="44" font-weight="800" fill="#ffffff">Magic Calculator Pro</text>
+    <text x="0" y="105" font-family="system-ui, sans-serif" font-size="18" fill="#94a3b8">Production-ready Android app with premium subscription engine</text>
+
+    <!-- Feature Cards Grid -->
+    <g transform="translate(0, 140)">
+      <!-- Card 1 -->
+      <rect x="0" y="0" width="290" height="95" rx="16" fill="#111827" stroke="#1f2937" stroke-width="1.5"/>
+      <circle cx="34" cy="34" r="16" fill="#3b82f6" opacity="0.2"/>
+      <text x="27" y="40" font-size="16" fill="#60a5fa">⚡</text>
+      <text x="62" y="38" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#ffffff">Jetpack Compose UI</text>
+      <text x="22" y="72" font-family="system-ui, sans-serif" font-size="12" fill="#9ca3af">Modern declarative UI with fluid gesture animations</text>
+
+      <!-- Card 2 -->
+      <rect x="310" y="0" width="290" height="95" rx="16" fill="#111827" stroke="#1f2937" stroke-width="1.5"/>
+      <circle cx="344" cy="34" r="16" fill="#f59e0b" opacity="0.2"/>
+      <text x="337" y="40" font-size="16" fill="#fbbf24">💳</text>
+      <text x="372" y="38" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#ffffff">Razorpay Subscriptions</text>
+      <text x="332" y="72" font-family="system-ui, sans-serif" font-size="12" fill="#9ca3af">Integrated checkout for Pro Masterclass & features</text>
+
+      <!-- Card 3 -->
+      <rect x="0" y="115" width="290" height="95" rx="16" fill="#111827" stroke="#1f2937" stroke-width="1.5"/>
+      <circle cx="34" cy="149" r="16" fill="#ef4444" opacity="0.2"/>
+      <text x="27" y="155" font-size="16" fill="#f87171">🔥</text>
+      <text x="62" y="153" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#ffffff">Firebase & Firestore</text>
+      <text x="22" y="187" font-family="system-ui, sans-serif" font-size="12" fill="#9ca3af">Google auth, cloud persistence & user sync</text>
+
+      <!-- Card 4 -->
+      <rect x="310" y="115" width="290" height="95" rx="16" fill="#111827" stroke="#1f2937" stroke-width="1.5"/>
+      <circle cx="344" cy="149" r="16" fill="#10b981" opacity="0.2"/>
+      <text x="337" y="155" font-size="16" fill="#34d399">⚙️</text>
+      <text x="372" y="153" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#ffffff">Modular Engine</text>
+      <text x="332" y="187" font-family="system-ui, sans-serif" font-size="12" fill="#9ca3af">Extensible strategy-based calculation engine</text>
+    </g>
+
+    <!-- Tech Stack Pills -->
+    <g transform="translate(0, 380)">
+      <text x="0" y="0" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#64748b" letter-spacing="1">TECHNOLOGIES USED</text>
+      
+      <g transform="translate(0, 15)">
+        <rect x="0" y="0" width="70" height="30" rx="8" fill="#1e293b"/>
+        <text x="14" y="20" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#cbd5e1">Kotlin</text>
+
+        <rect x="80" y="0" width="135" height="30" rx="8" fill="#1e293b"/>
+        <text x="94" y="20" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#cbd5e1">Jetpack Compose</text>
+
+        <rect x="225" y="0" width="80" height="30" rx="8" fill="#1e293b"/>
+        <text x="240" y="20" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#cbd5e1">Android</text>
+
+        <rect x="315" y="0" width="85" height="30" rx="8" fill="#1e293b"/>
+        <text x="329" y="20" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#cbd5e1">Firebase</text>
+
+        <rect x="410" y="0" width="80" height="30" rx="8" fill="#1e293b"/>
+        <text x="424" y="20" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#cbd5e1">Firestore</text>
+
+        <rect x="500" y="0" width="90" height="30" rx="8" fill="#1e293b"/>
+        <text x="514" y="20" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#cbd5e1">Razorpay</text>
+      </g>
+    </g>
+  </g>
+</svg>
