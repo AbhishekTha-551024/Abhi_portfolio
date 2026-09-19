@@ -169,6 +169,7 @@ export default function TerminalModal({ trigger }: TerminalModalProps) {
             <p>📱 Phone: <span className="text-neutral-200">+91 8815114272</span></p>
             <p>💼 LinkedIn: <a href="https://www.linkedin.com/in/abhishek-s-053525281/" target="_blank" rel="noopener noreferrer" className="text-cyan-400 underline">linkedin.com/in/abhishek-s-053525281</a></p>
             <p>🐙 GitHub: <a href="https://github.com/AbhishekTha-551024" target="_blank" rel="noopener noreferrer" className="text-cyan-400 underline">github.com/AbhishekTha-551024</a></p>
+            <p>📸 Instagram: <a href="https://www.instagram.com/joyfull_abhi/" target="_blank" rel="noopener noreferrer" className="text-pink-400 underline">@joyfull_abhi</a></p>
           </div>
         );
         break;

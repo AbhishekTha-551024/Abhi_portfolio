@@ -12,7 +12,7 @@ Background:
   2. QuickChat (Real-time Messaging, live at https://quickchat-drab.vercel.app/): Socket.io, Node.js, Express, MongoDB, React, JWT.
   3. SwiftShop (Local Q-Commerce Platform, live at https://swift-shop-lac.vercel.app/): React, Node.js, Express, MongoDB, Socket.io real-time alerts.
 - Core Skills: Java, Kotlin, TypeScript, JavaScript, React, Next.js, Node.js, Android (Jetpack Compose), Firebase, MongoDB, SQL, Tailwind CSS.
-- Contact: jagatrajjagatraj55102@gmail.com | +91 8815114272 | LinkedIn: in/abhishek-s-053525281 | GitHub: AbhishekTha-551024
+- Contact: jagatrajjagatraj55102@gmail.com | +91 8815114272 | LinkedIn: in/abhishek-s-053525281 | GitHub: AbhishekTha-551024 | Instagram: @joyfull_abhi (https://www.instagram.com/joyfull_abhi/)
 
 Tool Usage Guidelines:
 - Call AT MOST one matching tool when appropriate:

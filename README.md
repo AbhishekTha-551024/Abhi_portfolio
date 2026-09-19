@@ -12,7 +12,7 @@
 
 <br />
 
-[🌐 Live Portfolio](https://abhi-portfolio-theta-nine.vercel.app/) • [📱 Magic Calculator Pro](https://magiccalcs.in/) • [📄 Download Resume](https://github.com/AbhishekTha-551024/Abhi_portfolio/raw/main/public/Resume_Abhishek_Singh_AI.pdf) • [💼 LinkedIn](https://www.linkedin.com/in/abhishek-s-053525281/) • [🐙 GitHub](https://github.com/AbhishekTha-551024)
+[🌐 Live Portfolio](https://abhi-portfolio-theta-nine.vercel.app/) • [📱 Magic Calculator Pro](https://magiccalcs.in/) • [📄 Download Resume](https://github.com/AbhishekTha-551024/Abhi_portfolio/raw/main/public/Resume_Abhishek_Singh_AI.pdf) • [💼 LinkedIn](https://www.linkedin.com/in/abhishek-s-053525281/) • [🐙 GitHub](https://github.com/AbhishekTha-551024) • [📸 Instagram](https://www.instagram.com/joyfull_abhi/)
 
 </div>
 
@@ -124,6 +124,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 - 📱 **Phone**: [+91 8815114272](tel:+918815114272)
 - 💼 **LinkedIn**: [linkedin.com/in/abhishek-s-053525281](https://www.linkedin.com/in/abhishek-s-053525281/)
 - 🐙 **GitHub**: [github.com/AbhishekTha-551024](https://github.com/AbhishekTha-551024)
+- 📸 **Instagram**: [@joyfull_abhi](https://www.instagram.com/joyfull_abhi/)
 - 📍 **Location**: Jabalpur, Madhya Pradesh, India
 
 ---
